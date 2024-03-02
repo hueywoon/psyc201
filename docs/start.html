@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Getting Started | PSYC201 R Companion Website</title>
+  <meta name="description" content="This is the companion website to Prof. William Tov’s PSYC201 class." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Getting Started | PSYC201 R Companion Website" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is the companion website to Prof. William Tov’s PSYC201 class." />
+  <meta name="github-repo" content="hueywoon/psyc201" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Getting Started | PSYC201 R Companion Website" />
+  
+  <meta name="twitter:description" content="This is the companion website to Prof. William Tov’s PSYC201 class." />
+  
+
+<meta name="author" content="William TOV &amp; Huey Woon LEE" />
+
+
+<meta name="date" content="2024-03-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="basics.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/style.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/lesson.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PSYC201 R Companion Website</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About This Website</a></li>
+<li class="chapter" data-level="1" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>1</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="start.html"><a href="start.html#install-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> Install R and RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="start.html"><a href="start.html#the-rstudio-interface"><i class="fa fa-check"></i><b>1.2</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="1.3" data-path="start.html"><a href="start.html#r-script"><i class="fa fa-check"></i><b>1.3</b> R Script</a></li>
+<li class="chapter" data-level="1.4" data-path="start.html"><a href="start.html#some-tips-and-tricks"><i class="fa fa-check"></i><b>1.4</b> Some Tips and Tricks</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="start.html"><a href="start.html#softwrap-long-lines"><i class="fa fa-check"></i><b>1.4.1</b> Softwrap Long Lines</a></li>
+<li class="chapter" data-level="1.4.2" data-path="start.html"><a href="start.html#make-notes-or-comments"><i class="fa fa-check"></i><b>1.4.2</b> Make Notes or Comments</a></li>
+<li class="chapter" data-level="1.4.3" data-path="start.html"><a href="start.html#multi-line-comments"><i class="fa fa-check"></i><b>1.4.3</b> Multi-Line Comments</a></li>
+<li class="chapter" data-level="1.4.4" data-path="start.html"><a href="start.html#setting-working-directory"><i class="fa fa-check"></i><b>1.4.4</b> Setting working directory</a></li>
+<li class="chapter" data-level="1.4.5" data-path="start.html"><a href="start.html#using-r-projects"><i class="fa fa-check"></i><b>1.4.5</b> Using R Projects</a></li>
+<li class="chapter" data-level="1.4.6" data-path="start.html"><a href="start.html#debugging"><i class="fa fa-check"></i><b>1.4.6</b> Debugging</a></li>
+<li class="chapter" data-level="1.4.7" data-path="start.html"><a href="start.html#last-words"><i class="fa fa-check"></i><b>1.4.7</b> Last Words</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#some-basic-commands"><i class="fa fa-check"></i><b>2.1</b> Some Basic Commands</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#typing-and-executing-commands"><i class="fa fa-check"></i><b>2.2</b> Typing and Executing Commands</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#entering-data-directly-into-r"><i class="fa fa-check"></i><b>2.3</b> Entering Data Directly Into R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>3</b> Using Packages</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="packages.html"><a href="packages.html#installing-and-loading-sylcount"><i class="fa fa-check"></i><b>3.1</b> Installing and Loading sylcount</a></li>
+<li class="chapter" data-level="3.2" data-path="packages.html"><a href="packages.html#using-sylcount"><i class="fa fa-check"></i><b>3.2</b> Using sylcount</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="packages.html"><a href="packages.html#readability-of-each-item"><i class="fa fa-check"></i><b>3.2.1</b> Readability of Each Item</a></li>
+<li class="chapter" data-level="3.2.2" data-path="packages.html"><a href="packages.html#readability-of-all-items"><i class="fa fa-check"></i><b>3.2.2</b> Readability of All Items</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reliability.html"><a href="reliability.html"><i class="fa fa-check"></i><b>4</b> Reliability</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="reliability.html"><a href="reliability.html#dataset"><i class="fa fa-check"></i><b>4.1</b> Dataset</a></li>
+<li class="chapter" data-level="4.2" data-path="reliability.html"><a href="reliability.html#install-and-load-packages"><i class="fa fa-check"></i><b>4.2</b> Install and Load Packages</a></li>
+<li class="chapter" data-level="4.3" data-path="reliability.html"><a href="reliability.html#set-working-directory-and-load-dataset"><i class="fa fa-check"></i><b>4.3</b> Set Working Directory and Load Dataset</a></li>
+<li class="chapter" data-level="4.4" data-path="reliability.html"><a href="reliability.html#descriptives"><i class="fa fa-check"></i><b>4.4</b> Descriptives</a></li>
+<li class="chapter" data-level="4.5" data-path="reliability.html"><a href="reliability.html#reverse-scoring"><i class="fa fa-check"></i><b>4.5</b> Reverse Scoring</a></li>
+<li class="chapter" data-level="4.6" data-path="reliability.html"><a href="reliability.html#correlations"><i class="fa fa-check"></i><b>4.6</b> Correlations</a></li>
+<li class="chapter" data-level="4.7" data-path="reliability.html"><a href="reliability.html#alpha-reliability"><i class="fa fa-check"></i><b>4.7</b> Alpha Reliability</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PSYC201 R Companion Website</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="start" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Getting Started<a href="start.html#start" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>To analyse data in R, you need both R and RStudio. These are <em>different</em> programmes. Think of R as the software that executes our commands and RStudio as the interface between us and R that makes interacting with R a much more pleasant experience. If that doesn’t make sense, here’s a (hopefully relatable) example.</p>
+<p>Imagine you went to a hawker centre and there’s an uncle manning the store. This uncle can only speak Hokkien but you can’t. So, you tell your friend, who can speak Hokkien, what you want. Then, your friend translates that for the uncle, who then serves up a delicious meal for you. Think of the uncle in this example as R and your friend as RStudio. While you can try to “converse” with R directly, it’s much easier to do so through RStudio. So… For the sake of your sanity, please do download both programmes!</p>
+<div id="install-r-and-rstudio" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Install R and RStudio<a href="start.html#install-r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Install R</p>
+<p>For Windows</p>
+<ol style="list-style-type: decimal">
+<li>Open an internet browser and go to <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a>.</li>
+<li>Under <strong>Download and Install R</strong>, Click on <strong>Download R for Windows</strong>. Click on <strong>base</strong>.</li>
+<li>Download the latest release by saving the .exe file on your computer. Double-click the file and follow the installation instructions.</li>
+</ol>
+<p>For macOS</p>
+<ol style="list-style-type: decimal">
+<li>Open an internet browser and go to <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a>.</li>
+<li>Under <strong>Download and Install R</strong>, click on <strong>Download R for macOS</strong>.</li>
+<li>Download the latest release by saving the .pkg file to your computer. Double-click the file and follow the installation instructions.</li>
+</ol>
+<p>Install RStudio</p>
+<p>Now that R is installed, download and install RStudio.</p>
+<ol style="list-style-type: decimal">
+<li>Go to <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a>.</li>
+<li>Click <strong>Download under RStudio Desktop</strong>.</li>
+<li>Click on the version recommended for your system, or the latest Windows / macOS version, and save the file. Double-click the file and follow the installation instructions.</li>
+</ol>
+</div>
+<div id="the-rstudio-interface" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> The RStudio Interface<a href="start.html#the-rstudio-interface" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now, start up RStudio. You should see something like this:</p>
+<div class="figure"><span style="display:block;" id="fig:001-threepane"></span>
+<img src="img/001-threepane.png" alt="R Studio Interface With Three Panes" width="100%" />
+<p class="caption">
+Figure 1.1: R Studio Interface With Three Panes
+</p>
+</div>
+<p>When you first start up RStudio, you will see three panes: the R console, the workspace, and the files, plots, packages, help, and viewer pane. Each pane serves different purposes.</p>
+<ol style="list-style-type: decimal">
+<li><strong>R console</strong>: The R console is where commands are submitted to R for R to execute. It is also where we find some of the output from R (e.g., analysis results).</li>
+<li><strong>Workspace</strong>: I think of this as R’s short-term memory. There are two tabs that are particularly useful.
+<ul>
+<li><strong>Environment tab</strong>: We can find the list of objects (e.g., variables, data frames, functions) that we created in the session here.</li>
+<li><strong>History tab</strong>: Here is where we can find all the previous commands we submitted to R in the session.</li>
+</ul></li>
+<li><strong>Files, plots, packages, help, and viewer</strong>:
+<ul>
+<li><strong>Files</strong>: We can create new folders on our computer, move, delete, and rename files here.</li>
+<li><strong>Plots</strong>: We can find all the plots we instructed R to produce during the session here.</li>
+<li><strong>Packages</strong>: We can find, install, and update packages here. Packages contain data, functions, help menus, etc. that other people have created to supplement those in R. We will talk more about specific packages later.</li>
+<li><strong>Help</strong>: We can find information about a given command or package. We can also find more information about various commands and the packages on this website: <a href="https://www.rdocumentation.org/" class="uri">https://www.rdocumentation.org/</a></li>
+</ul></li>
+</ol>
+<p><em>Note.</em> Because the Terminal tab, the Connections tab, and the Viewer tab will not be used in this course, we will not talk about them.</p>
+</div>
+<div id="r-script" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> R Script<a href="start.html#r-script" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To get R to do stuff (e.g., conduct analyses), we submit commands to R through RStudio. Although we can type the commands directly into the console, R users prefer to type the commands into what is called the script editor because we can save the commands in the script editor into script files (with the extension .R). The script files allow us to keep long-term records of the analyses that we have conducted. We can also share the script files with other R users so that they can reproduce our analyses. (We will use the words command and code interchangeably here.)</p>
+<p>To open a blank R script, go to <strong>File &gt; New File &gt; R Script</strong>. Or, you can use the shortcut Ctrl + Shift + N (Windows) or Cmd + Shift + N (macOS). Notice that now, your RStudio has four panes. The script editor should now take up the top half of the left hand side of the screen as shown below.</p>
+<div class="figure"><span style="display:block;" id="fig:002-fourpane"></span>
+<img src="img/002-fourpane.png" alt="R Studio With  Four Panes" width="100%" />
+<p class="caption">
+Figure 1.2: R Studio With Four Panes
+</p>
+</div>
+</div>
+<div id="some-tips-and-tricks" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Some Tips and Tricks<a href="start.html#some-tips-and-tricks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Before we start coding proper, here are some tips to help you along your R journey!</p>
+<div id="softwrap-long-lines" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Softwrap Long Lines<a href="start.html#softwrap-long-lines" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes, we might write commands in the Script editor section that are too long (horizontally) to fit the window. To see the entire command, we might need to scroll left and right. This can be frustrating. (It’s like Notepad, without word wrap.) Fortunately, we can wrap the text such that the code fits into the size of the window. Go to <strong>Code &gt; Soft Wrap Long Lines</strong>.</p>
+</div>
+<div id="make-notes-or-comments" class="section level3 hasAnchor" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Make Notes or Comments<a href="start.html#make-notes-or-comments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In R (and most programming languages), you can write notes or comments in the script to yourself and your readers. This is done in R by starting the line with a <code>#</code> sign.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="start.html#cb1-1" tabindex="-1"></a><span class="co"># This is a comment. </span></span></code></pre></div>
+<p>Please make <em>liberal</em> use of comments. They will help you understand what you’re doing and why, especially if you haven’t visited a project in a while.</p>
+</div>
+<div id="multi-line-comments" class="section level3 hasAnchor" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> Multi-Line Comments<a href="start.html#multi-line-comments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To make your super long comments readable, you may break them into several lines, starting each line with <code>#&gt;</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="start.html#cb2-1" tabindex="-1"></a><span class="co">#&gt; This is a comment</span></span>
+<span id="cb2-2"><a href="start.html#cb2-2" tabindex="-1"></a><span class="co">#&gt; that has been broken</span></span>
+<span id="cb2-3"><a href="start.html#cb2-3" tabindex="-1"></a><span class="co">#&gt; into multiple </span></span>
+<span id="cb2-4"><a href="start.html#cb2-4" tabindex="-1"></a><span class="co">#&gt; lines.</span></span>
+<span id="cb2-5"><a href="start.html#cb2-5" tabindex="-1"></a><span class="co">#&gt; :) </span></span></code></pre></div>
+</div>
+<div id="setting-working-directory" class="section level3 hasAnchor" number="1.4.4">
+<h3><span class="header-section-number">1.4.4</span> Setting working directory<a href="start.html#setting-working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Typically when we analyse data, we need to reference external files (e.g., our data files). To tell R where to look for those data files, we need to specify the full file path (i.e., the file location). While this is fine if you only have one or two things to reference, it can be kind of tedious to keep typing the file path if you have many things to reference. Furthermore, if you choose to change your file location, it would be quite a hassle (and also error-prone) to have to update all those file paths in the script.</p>
+<p>What we can do instead is to set a working directory in R using the function <code>setwd()</code>. This tells R where your data files are stored for the session, so it will know to look there. It will also be the place that R saves any output (e.g., plots).</p>
+<p>To get the file location in Windows, we first go to the folder where the file is located, right-click on the address bar, and click <strong>Copy address as text</strong>. We then need to convert the backslashes in the file path to forward slashes before we can use it. Let’s say the file path is <code>C:\Users\Win10\Desktop\R</code>. After converting all the backslashes to forward slashes, the file path to use is <code>C:/Users/Win10/Desktop/R</code>.</p>
+<p>In macOS, there are several ways to get the file path. For instructions, please visit this website: <a href="https://www.dev2qa.com/how-to-get-file-path-in-mac/" class="uri">https://www.dev2qa.com/how-to-get-file-path-in-mac/</a>. Note that the file paths in macOS already use forward slashes, so changing backslashes to forward slashes is not an issue for macOS users.</p>
+<p>After getting the file path, you can then set the working directory as follows, with the file path encased in open/close inverted commas, within the parentheses.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="start.html#cb3-1" tabindex="-1"></a><span class="co"># Set working directory</span></span>
+<span id="cb3-2"><a href="start.html#cb3-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/Win10/Desktop/R&quot;</span>)</span></code></pre></div>
+</div>
+<div id="using-r-projects" class="section level3 hasAnchor" number="1.4.5">
+<h3><span class="header-section-number">1.4.5</span> Using R Projects<a href="start.html#using-r-projects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>While setting the working directory manually is sufficient when we have one or two projects, many of us have multiple projects on-going at the same time. If we have a bunch of different files from different projects all strewn in a single directory (folder), it can get quite messy. To stay organised, it is best that we create an R project for each project we are working on.</p>
+<p>To do this, go to <strong>File &gt; New Project</strong>. A dialogue window with three options, “New Directory”, “Existing Directory” and “Version Control”, will appear. From here, you may choose either “New Directory” or “Existing Directory”. If you chose “New Directory”, R will create a new folder and create an R project within that new folder. If you chose “Existing Directory”, R will create an R project within an existing folder that you specify. Either will work, but I usually select “Existing Directory” as I would already have created my own folder to house materials related to a specific project.</p>
+<p>After RStudio has created the project, it will change the working directory to the project directory so that you can access all the files (e.g., data, script) related to this project in this directory. RStudio will also create a file with the extension .Rproj in the project directory. When you open this file, RStudio will automatically start a new session with the project directory as your working directory.</p>
+<p>While it is not absolutely necessary to use RStudio projects in this course, I recommend it because it will help keep you organized.</p>
+</div>
+<div id="debugging" class="section level3 hasAnchor" number="1.4.6">
+<h3><span class="header-section-number">1.4.6</span> Debugging<a href="start.html#debugging" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When you are programming, you will make errors (“bugs”) in your code. Trying to figure out where you made the error (“debugging”) can be extremely time-consuming and frustrating. To help you along, here are some of the most common bugs that you’ll run into.</p>
+<ol style="list-style-type: decimal">
+<li>Misspelled object or function
+<ul>
+<li>Misspelled object (e.g., condition vs condtion) will throw this error message: <em>Error: object not found</em></li>
+<li>Misspelled function (e.g., <code>t.test</code> vs <code>ttest</code>) or trying to use functions in packages that have not been loaded yet will throw this error message: <em>Error: could not find function</em></li>
+<li>R is case-sensitive. So if your object is called <em>Dataset</em>, you need to type <em>Dataset</em> and not <em>dataset</em>, else it will throw an error message.</li>
+<li>If you’re referring to a variable in the dataset, you must attach the <code>$</code> sign (e.g., dataset$variable). Otherwise, R will tell you it cannot find the object.</li>
+</ul></li>
+<li>Punctuation mistake
+<ul>
+<li>Remember to close the parenthesis ()</li>
+<li>Don’t add a space where there shouldn’t be. For example, if your object is called <em>dataset</em>, don’t type <em>data set</em>.</li>
+<li>Use the correct punctuation for the function. For example, if the function requires a comma, don’t put in full stops. If it requires a double equal sign, don’t put in a single equal sign.</li>
+</ul></li>
+</ol>
+<p>If you’ve tried all the above and still can’t figure out what’s going on, just copy and paste the warning into the search engine. 99% of the time, you’ll be able to figure out what happened by reading responses on forums or other websites. (Programmers are super helpful!)</p>
+</div>
+<div id="last-words" class="section level3 hasAnchor" number="1.4.7">
+<h3><span class="header-section-number">1.4.7</span> Last Words<a href="start.html#last-words" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In general, students new to programming tend to be hesitant to experiment, worried that they’d break the software or something. Please be assured that this rarely happens (except maybe when you write a loop function that doesn’t stop looping!). So just have fun and experiment. If RStudio freezes, just close it and re-start!</p>
+<p>Congrats! You’ve now installed R and RStudio! You’re now ready to move on to some basics! =D</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/hueywoon/assignment/blob/master/00-start.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

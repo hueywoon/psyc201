@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Using tidyverse | PSYC201 R Companion Website</title>
+  <meta name="description" content="This is the companion website to Prof. William Tov’s PSYC201 class." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Using tidyverse | PSYC201 R Companion Website" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is the companion website to Prof. William Tov’s PSYC201 class." />
+  <meta name="github-repo" content="hueywoon/psyc201" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Using tidyverse | PSYC201 R Companion Website" />
+  
+  <meta name="twitter:description" content="This is the companion website to Prof. William Tov’s PSYC201 class." />
+  
+
+<meta name="author" content="Huey Woon LEE &amp; William TOV" />
+
+
+<meta name="date" content="2024-03-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="basics.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/style.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/lesson.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PSYC201 R Companion Website</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About This Website</a></li>
+<li class="chapter" data-level="1" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>1</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="start.html"><a href="start.html#install-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> Install R and RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="start.html"><a href="start.html#the-rstudio-interface"><i class="fa fa-check"></i><b>1.2</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="1.3" data-path="start.html"><a href="start.html#r-script"><i class="fa fa-check"></i><b>1.3</b> R Script</a></li>
+<li class="chapter" data-level="1.4" data-path="start.html"><a href="start.html#some-tips-and-tricks"><i class="fa fa-check"></i><b>1.4</b> Some Tips and Tricks</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="start.html"><a href="start.html#softwrap-long-lines"><i class="fa fa-check"></i><b>1.4.1</b> Softwrap Long Lines</a></li>
+<li class="chapter" data-level="1.4.2" data-path="start.html"><a href="start.html#make-notes-or-comments"><i class="fa fa-check"></i><b>1.4.2</b> Make Notes or Comments</a></li>
+<li class="chapter" data-level="1.4.3" data-path="start.html"><a href="start.html#multi-line-comments"><i class="fa fa-check"></i><b>1.4.3</b> Multi-Line Comments</a></li>
+<li class="chapter" data-level="1.4.4" data-path="start.html"><a href="start.html#setting-working-directory"><i class="fa fa-check"></i><b>1.4.4</b> Setting working directory</a></li>
+<li class="chapter" data-level="1.4.5" data-path="start.html"><a href="start.html#using-r-projects"><i class="fa fa-check"></i><b>1.4.5</b> Using R Projects</a></li>
+<li class="chapter" data-level="1.4.6" data-path="start.html"><a href="start.html#debugging"><i class="fa fa-check"></i><b>1.4.6</b> Debugging</a></li>
+<li class="chapter" data-level="1.4.7" data-path="start.html"><a href="start.html#last-words"><i class="fa fa-check"></i><b>1.4.7</b> Last Words</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#some-basic-commands"><i class="fa fa-check"></i><b>2.1</b> Some Basic Commands</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#typing-and-executing-commands"><i class="fa fa-check"></i><b>2.2</b> Typing and Executing Commands</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#entering-data-directly-into-r"><i class="fa fa-check"></i><b>2.3</b> Entering Data Directly Into R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> Using tidyverse</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="tidyverse.html"><a href="tidyverse.html#installing-and-loading-tidyverse"><i class="fa fa-check"></i><b>3.1</b> Installing and Loading tidyverse</a></li>
+<li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#import-data"><i class="fa fa-check"></i><b>3.2</b> Import Data</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="tidyverse.html"><a href="tidyverse.html#swb-dataset"><i class="fa fa-check"></i><b>3.2.1</b> SWB Dataset</a></li>
+<li class="chapter" data-level="3.2.2" data-path="tidyverse.html"><a href="tidyverse.html#check-imported-dataset"><i class="fa fa-check"></i><b>3.2.2</b> Check Imported Dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="tidyverse.html"><a href="tidyverse.html#factors"><i class="fa fa-check"></i><b>3.3</b> Factors</a></li>
+<li class="chapter" data-level="3.4" data-path="tidyverse.html"><a href="tidyverse.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i><b>3.4</b> Data Wrangling With dplyr</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="tidyverse.html"><a href="tidyverse.html#select"><i class="fa fa-check"></i><b>3.4.1</b> Select()</a></li>
+<li class="chapter" data-level="3.4.2" data-path="tidyverse.html"><a href="tidyverse.html#filter"><i class="fa fa-check"></i><b>3.4.2</b> Filter()</a></li>
+<li class="chapter" data-level="3.4.3" data-path="tidyverse.html"><a href="tidyverse.html#mutate"><i class="fa fa-check"></i><b>3.4.3</b> Mutate()</a></li>
+<li class="chapter" data-level="3.4.4" data-path="tidyverse.html"><a href="tidyverse.html#summarise"><i class="fa fa-check"></i><b>3.4.4</b> Summarise()</a></li>
+<li class="chapter" data-level="3.4.5" data-path="tidyverse.html"><a href="tidyverse.html#group_by"><i class="fa fa-check"></i><b>3.4.5</b> Group_by()</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="tidyverse.html"><a href="tidyverse.html#tables-and-plots-with-ggplot2"><i class="fa fa-check"></i><b>3.5</b> Tables and Plots with ggplot2</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="tidyverse.html"><a href="tidyverse.html#frequency-tables"><i class="fa fa-check"></i><b>3.5.1</b> Frequency Tables</a></li>
+<li class="chapter" data-level="3.5.2" data-path="tidyverse.html"><a href="tidyverse.html#bar-plots-with-ggplot2"><i class="fa fa-check"></i><b>3.5.2</b> Bar Plots with ggplot2</a></li>
+<li class="chapter" data-level="3.5.3" data-path="tidyverse.html"><a href="tidyverse.html#histograms-with-ggplot2"><i class="fa fa-check"></i><b>3.5.3</b> Histograms with ggplot2</a></li>
+<li class="chapter" data-level="3.5.4" data-path="tidyverse.html"><a href="tidyverse.html#scatterplot-with-ggplot2"><i class="fa fa-check"></i><b>3.5.4</b> Scatterplot with ggplot2</a></li>
+<li class="chapter" data-level="3.5.5" data-path="tidyverse.html"><a href="tidyverse.html#last-words-1"><i class="fa fa-check"></i><b>3.5.5</b> Last Words</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PSYC201 R Companion Website</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tidyverse" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Using tidyverse<a href="tidyverse.html#tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><em>Warning:</em> This is a pretty long tutorial. However, it covers commands that are useful for data cleaning / wrangling. These will not be covered in the class, so please do set aside the time to go through this on your own!</p>
+<p>Now that you have some basics under your belt, let’s move on to installing and using packages from <code>tidyverse</code>!</p>
+<p>The <code>tidyverse</code> is a collection of R packages that many data analysts use. You can think of packages as collections of R codes (and more!) that other people have created to make R more powerful or easier to use. In this course, we will be heavily relying on a few of the packages such as <code>readr</code>, <code>dplyr</code> and <code>ggplot2</code> that are in the <code>tidyverse</code> collection. Instead of installing each package separately as we normally would, we can simply install <code>tidyverse</code> and that would install all the other packages that we want.</p>
+<div id="installing-and-loading-tidyverse" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Installing and Loading tidyverse<a href="tidyverse.html#installing-and-loading-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To install <code>tidyverse</code>, use the function <code>install.packages()</code>.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="tidyverse.html#cb24-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<p>Even after we have installed tidyverse, we cannot use it unless we load it. To load it, we need the <code>library()</code> function.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="tidyverse.html#cb25-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p><em>Note.</em> You can temporarily load a package without using the <code>library()</code> function using the notation <code>package::function</code>. This tells R to load the package for a specific chunk of code and not for the entire session. This allows anyone who reads the code to know which package the function comes from.</p>
+<p>The <code>package::function</code> comes in especially handy when we want to help R distinguish between two packages with the same function names. For example, the packages <code>ggplot2</code> and <code>psych</code> both have a function called <code>alpha()</code>. If you load both together, R will “mask” the function from one of the packages (it will tell you which package is masked when loading the packages). What this means is that R will use the function from the package that is not masked. As you can imagine, this can be quite confusing. So, to specify that you want to use the function from the <code>psych</code> package, you should type <code>psych::alpha()</code>. Similarly, if you want to specify that the function comes from the <code>ggplot2</code> package, type <code>ggplot2::alpha()</code>.</p>
+<p>Now that we have <code>tidyverse</code> loaded, let’s do stuff with it. Let’s start with importing data.</p>
+</div>
+<div id="import-data" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Import Data<a href="tidyverse.html#import-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Usually, R users do not have to enter their data into R directly. Instead, they already have their dataset in various formats, such as .csv, .txt, .sav, .xlsx, etc. So what they need to do is to import the dataset into R.</p>
+<p>In this class, I will use mainly .csv files. To import .csv files, we can use the <code>read_csv()</code> function from the <code>readr</code> package in <code>tidyverse</code>. I have created a hypothetical dataset to demonstrate how to import .csv files. To follow along, please download the dataset here: <a href="SWB.csv">SWB.csv</a>.</p>
+<div id="swb-dataset" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> SWB Dataset<a href="tidyverse.html#swb-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this hypothetical dataset, 343 participants provided demographic information and responded to the 9-item Materialism Values Survey (MVS) and the 5-item Satisfaction with Life Scale in 2019 (SWLS2019). The same participants were asked to respond to the Satisfaction with Life Scale in 2021 (SWLS2021). The legend for this dataset is as follows:</p>
+<table>
+<colgroup>
+<col width="26%" />
+<col width="16%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Variable Name</th>
+<th align="left">Variable Label</th>
+<th align="left">Value Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">pin</td>
+<td align="left">participant identification number</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">gender</td>
+<td align="left">gender</td>
+<td align="left">0 = male, 1 = female</td>
+</tr>
+<tr class="odd">
+<td align="left">marital_status</td>
+<td align="left">marital status</td>
+<td align="left">1 = married, 2 = divorced, 3 = widowed</td>
+</tr>
+<tr class="even">
+<td align="left">have_children</td>
+<td align="left">parental status</td>
+<td align="left">0 = no children, 1 = have children</td>
+</tr>
+<tr class="odd">
+<td align="left">mvs_1</td>
+<td align="left">My life would be better if I own certain things I don’t have.</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = neither disagree nor agree, 4 = agree, 5 = strongly agree</td>
+</tr>
+<tr class="even">
+<td align="left">mvs_2</td>
+<td align="left">The things I own say a lot about how well I’m doing.</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = neither disagree nor agree, 4 = agree, 5 = strongly agree</td>
+</tr>
+<tr class="odd">
+<td align="left">mvs_3</td>
+<td align="left">I’d be happier if I could afford to buy more things.</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = neither disagree nor agree, 4 = agree, 5 = strongly agree</td>
+</tr>
+<tr class="even">
+<td align="left">mvs_4</td>
+<td align="left">It bothers me that I can’t afford to buy things I’d like.</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = neither disagree nor agree, 4 = agree, 5 = strongly agree</td>
+</tr>
+<tr class="odd">
+<td align="left">mvs_5</td>
+<td align="left">Buying things gives me a lot of pleasure.</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = neither disagree nor agree, 4 = agree, 5 = strongly agree</td>
+</tr>
+<tr class="even">
+<td align="left">mvs_6</td>
+<td align="left">I admire people who own expensive homes, cars, clothes.</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = neither disagree nor agree, 4 = agree, 5 = strongly agree</td>
+</tr>
+<tr class="odd">
+<td align="left">mvs_7</td>
+<td align="left">I like to own things that impress people.</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = neither disagree nor agree, 4 = agree, 5 = strongly agree</td>
+</tr>
+<tr class="even">
+<td align="left">mvs_8</td>
+<td align="left">I like a lot of luxury in my life.</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = neither disagree nor agree, 4 = agree, 5 = strongly agree</td>
+</tr>
+<tr class="odd">
+<td align="left">mvs_9</td>
+<td align="left">I try to keep my life simple, as far as possessions are concerned. (R)</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = neither disagree nor agree, 4 = agree, 5 = strongly agree</td>
+</tr>
+<tr class="even">
+<td align="left">swls2019_1</td>
+<td align="left">In most ways my life is close to my ideal. (2019)</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = slightly disagree, 4 = neither disagree nor agree, 5 = slightly agree, 6 = agree, 7 = strongly agree</td>
+</tr>
+<tr class="odd">
+<td align="left">swls2019_2</td>
+<td align="left">The conditions of my life are excellent. (2019)</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = slightly disagree, 4 = neither disagree nor agree, 5 = slightly agree, 6 = agree, 7 = strongly agree</td>
+</tr>
+<tr class="even">
+<td align="left">swls2019_3</td>
+<td align="left">I am satisfied with my life. (2019)</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = slightly disagree, 4 = neither disagree nor agree, 5 = slightly agree, 6 = agree, 7 = strongly agree</td>
+</tr>
+<tr class="odd">
+<td align="left">swls2019_4</td>
+<td align="left">So far I have gotten the important things I want in life. (2019)</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = slightly disagree, 4 = neither disagree nor agree, 5 = slightly agree, 6 = agree, 7 = strongly agree</td>
+</tr>
+<tr class="even">
+<td align="left">swls2019_5</td>
+<td align="left">In most ways my life is close to my ideal. (2019)</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = slightly disagree, 4 = neither disagree nor agree, 5 = slightly agree, 6 = agree, 7 = strongly agree</td>
+</tr>
+<tr class="odd">
+<td align="left">swls2021_1</td>
+<td align="left">In most ways my life is close to my ideal. (2021)</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = slightly disagree, 4 = neither disagree nor agree, 5 = slightly agree, 6 = agree, 7 = strongly agree</td>
+</tr>
+<tr class="even">
+<td align="left">swls2021_2</td>
+<td align="left">The conditions of my life are excellent. (2021)</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = slightly disagree, 4 = neither disagree nor agree, 5 = slightly agree, 6 = agree, 7 = strongly agree</td>
+</tr>
+<tr class="odd">
+<td align="left">swls2021_3</td>
+<td align="left">I am satisfied with my life. (2021)</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = slightly disagree, 4 = neither disagree nor agree, 5 = slightly agree, 6 = agree, 7 = strongly agree</td>
+</tr>
+<tr class="even">
+<td align="left">swls2021_4</td>
+<td align="left">So far I have gotten the important things I want in life. (2021)</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = slightly disagree, 4 = neither disagree nor agree, 5 = slightly agree, 6 = agree, 7 = strongly agree</td>
+</tr>
+<tr class="odd">
+<td align="left">swls2021_5</td>
+<td align="left">In most ways my life is close to my ideal. (2021)</td>
+<td align="left">1 = strongly disagree, 2 = disagree, 3 = slightly disagree, 4 = neither disagree nor agree, 5 = slightly agree, 6 = agree, 7 = strongly agree</td>
+</tr>
+</tbody>
+</table>
+<p>Now that you have some idea of what the dataset comprises, let’s read in the .csv file.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="tidyverse.html#cb26-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;SWB.csv&quot;</span>)</span>
+<span id="cb26-2"><a href="tidyverse.html#cb26-2" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="tidyverse.html#cb26-3" tabindex="-1"></a><span class="co"># this code is saying...</span></span>
+<span id="cb26-4"><a href="tidyverse.html#cb26-4" tabindex="-1"></a><span class="co"># read in the .csv file, &quot;SWB.csv&quot; and assign it to the object &quot;data&quot;</span></span>
+<span id="cb26-5"><a href="tidyverse.html#cb26-5" tabindex="-1"></a><span class="co"># from now on, &quot;data&quot; will refer to the data in this csv file</span></span></code></pre></div>
+<p><code>read_csv()</code> is not the only function you can use to read in a .csv file. You can also use the built-in R function <code>read.csv()</code>.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="tidyverse.html#cb27-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;SWB.csv&quot;</span>)</span></code></pre></div>
+<p>If you use <code>read.csv()</code>, you don’t have to load <code>tidyverse</code>. This is because <code>read_csv()</code> comes from the <code>readr</code> package (and therefore the <code>tidyverse</code> collection) whereas <code>read.csv()</code> comes pre-installed with R.</p>
+<p><code>read.csv()</code> is supposedly slower than <code>read_csv()</code>, which in turn is slower than <code>data.table</code>’s <code>fread()</code>. For our purposes, though, it really doesn’t matter which you use, so long as you can successfully read the .csv file.</p>
+<p>If you have other file types, such as .txt, .sav, .xlsx, you might need different packages. For example, for excel files (.xlsx), you will need the <code>readxl</code> package. For SPSS (.sav), you will need the <code>haven</code> package or the <code>foreign</code> package. For this class, I am very unlikely to use file types aside from .csv, but it is good to be aware of the packages to use if you want to import other file types.</p>
+</div>
+<div id="check-imported-dataset" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Check Imported Dataset<a href="tidyverse.html#check-imported-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Before conducting any analyses, check that the dataset has been imported correctly. Go to the <code>Environment</code> pane (top right pane of RStudio). Click on <code>data</code>. The top left pane should now show the imported data in what looks like a spreadsheet. Alternatively, you may type <code>View(data)</code> into the console.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Rows</strong>: The data for each participant is recorded in a single row (e.g., data for Participant 1 is in Row 1)</li>
+<li><strong>Columns</strong>: The data for each variable is recorded in a single column. Names of the variables are in the headers for each column</li>
+</ol>
+<p>Scroll down to ensure all rows have been imported correctly. There should be 343 rows. Scroll right to ensure all columns have been imported correctly. There should be 23 columns.</p>
+<p>Another way to check the imported dataset is using the <code>str()</code> or the <code>glimpse()</code> functions. Both give you roughly similar information (e.g., that there are 343 rows and 23 columns, the names of the variables, the values for the first 10 or so participants). Compare them below.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="tidyverse.html#cb28-1" tabindex="-1"></a><span class="fu">str</span>(data)</span></code></pre></div>
+<pre><code>## spc_tbl_ [343 × 23] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ pin           : num [1:343] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ gender        : num [1:343] 0 1 1 1 1 0 1 0 1 0 ...
+##  $ marital_status: num [1:343] 1 1 3 1 2 1 2 1 2 1 ...
+##  $ have_children : num [1:343] 0 1 0 0 0 1 0 0 0 1 ...
+##  $ mvs_1         : num [1:343] 4 4 5 2 2 3 2 2 3 2 ...
+##  $ mvs_2         : num [1:343] 3 3 4 3 2 4 3 3 4 3 ...
+##  $ mvs_3         : num [1:343] 3 3 4 3 3 4 3 3 4 3 ...
+##  $ mvs_4         : num [1:343] 3 3 3 2 2 5 4 4 3 4 ...
+##  $ mvs_5         : num [1:343] 3 3 4 3 3 4 3 3 4 2 ...
+##  $ mvs_6         : num [1:343] 4 4 5 2 2 3 4 4 5 2 ...
+##  $ mvs_7         : num [1:343] 3 2 4 2 3 3 3 3 4 3 ...
+##  $ mvs_8         : num [1:343] 4 4 5 4 4 5 3 3 4 3 ...
+##  $ mvs_9         : num [1:343] 2 2 1 3 3 2 3 3 2 4 ...
+##  $ swls2019_1    : num [1:343] 4 5 4 6 5 5 2 4 5 5 ...
+##  $ swls2019_2    : num [1:343] 4 6 4 5 4 4 3 3 5 5 ...
+##  $ swls2019_3    : num [1:343] 5 5 4 7 4 4 3 3 5 5 ...
+##  $ swls2019_4    : num [1:343] 5 6 5 6 4 5 3 3 4 6 ...
+##  $ swls2019_5    : num [1:343] 4 6 5 5 5 4 3 3 5 6 ...
+##  $ swls2021_1    : num [1:343] 4 4 3 5 4 5 2 4 4 5 ...
+##  $ swls2021_2    : num [1:343] 4 6 3 5 3 4 2 3 4 5 ...
+##  $ swls2021_3    : num [1:343] 5 4 4 6 4 3 4 3 5 4 ...
+##  $ swls2021_4    : num [1:343] 5 5 5 6 4 4 3 3 4 5 ...
+##  $ swls2021_5    : num [1:343] 4 5 5 5 5 4 3 3 5 6 ...
+##  - attr(*, &quot;spec&quot;)=
+##   .. cols(
+##   ..   pin = col_double(),
+##   ..   gender = col_double(),
+##   ..   marital_status = col_double(),
+##   ..   have_children = col_double(),
+##   ..   mvs_1 = col_double(),
+##   ..   mvs_2 = col_double(),
+##   ..   mvs_3 = col_double(),
+##   ..   mvs_4 = col_double(),
+##   ..   mvs_5 = col_double(),
+##   ..   mvs_6 = col_double(),
+##   ..   mvs_7 = col_double(),
+##   ..   mvs_8 = col_double(),
+##   ..   mvs_9 = col_double(),
+##   ..   swls2019_1 = col_double(),
+##   ..   swls2019_2 = col_double(),
+##   ..   swls2019_3 = col_double(),
+##   ..   swls2019_4 = col_double(),
+##   ..   swls2019_5 = col_double(),
+##   ..   swls2021_1 = col_double(),
+##   ..   swls2021_2 = col_double(),
+##   ..   swls2021_3 = col_double(),
+##   ..   swls2021_4 = col_double(),
+##   ..   swls2021_5 = col_double()
+##   .. )
+##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="tidyverse.html#cb30-1" tabindex="-1"></a><span class="fu">glimpse</span>(data)</span></code></pre></div>
+<pre><code>## Rows: 343
+## Columns: 23
+## $ pin            &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
+## $ gender         &lt;dbl&gt; 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0…
+## $ marital_status &lt;dbl&gt; 1, 1, 3, 1, 2, 1, 2, 1, 2, 1, 3, 2, 3, 3, 3, 1, 1, 1, 3…
+## $ have_children  &lt;dbl&gt; 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0…
+## $ mvs_1          &lt;dbl&gt; 4, 4, 5, 2, 2, 3, 2, 2, 3, 2, 2, 3, 2, 2, 3, 3, 3, 4, 3…
+## $ mvs_2          &lt;dbl&gt; 3, 3, 4, 3, 2, 4, 3, 3, 4, 3, 2, 4, 1, 3, 2, 3, 2, 4, 3…
+## $ mvs_3          &lt;dbl&gt; 3, 3, 4, 3, 3, 4, 3, 3, 4, 3, 3, 4, 2, 2, 3, 4, 4, 5, 3…
+## $ mvs_4          &lt;dbl&gt; 3, 3, 3, 2, 2, 5, 4, 4, 3, 4, 4, 4, 2, 2, 4, 3, 3, 4, 4…
+## $ mvs_5          &lt;dbl&gt; 3, 3, 4, 3, 3, 4, 3, 3, 4, 2, 2, 3, 3, 3, 4, 4, 4, 5, 3…
+## $ mvs_6          &lt;dbl&gt; 4, 4, 5, 2, 2, 3, 4, 4, 5, 2, 2, 3, 3, 3, 4, 2, 2, 3, 4…
+## $ mvs_7          &lt;dbl&gt; 3, 2, 4, 2, 3, 3, 3, 3, 4, 3, 1, 4, 4, 1, 5, 1, 3, 2, 3…
+## $ mvs_8          &lt;dbl&gt; 4, 4, 5, 4, 4, 5, 3, 3, 4, 3, 3, 4, 2, 2, 3, 3, 3, 4, 4…
+## $ mvs_9          &lt;dbl&gt; 2, 2, 1, 3, 3, 2, 3, 3, 2, 4, 4, 3, 4, 4, 3, 3, 3, 2, 3…
+## $ swls2019_1     &lt;dbl&gt; 4, 5, 4, 6, 5, 5, 2, 4, 5, 5, 5, 3, 4, 5, 4, 5, 5, 6, 4…
+## $ swls2019_2     &lt;dbl&gt; 4, 6, 4, 5, 4, 4, 3, 3, 5, 5, 5, 4, 3, 5, 4, 4, 4, 6, 5…
+## $ swls2019_3     &lt;dbl&gt; 5, 5, 4, 7, 4, 4, 3, 3, 5, 5, 4, 4, 3, 4, 3, 4, 4, 5, 4…
+## $ swls2019_4     &lt;dbl&gt; 5, 6, 5, 6, 4, 5, 3, 3, 4, 6, 4, 4, 4, 5, 4, 4, 5, 6, 4…
+## $ swls2019_5     &lt;dbl&gt; 4, 6, 5, 5, 5, 4, 3, 3, 5, 6, 5, 4, 3, 4, 3, 5, 5, 6, 4…
+## $ swls2021_1     &lt;dbl&gt; 4, 4, 3, 5, 4, 5, 2, 4, 4, 5, 5, 2, 3, 5, 4, 4, 5, 6, 4…
+## $ swls2021_2     &lt;dbl&gt; 4, 6, 3, 5, 3, 4, 2, 3, 4, 5, 4, 3, 2, 4, 3, 4, 4, 6, 4…
+## $ swls2021_3     &lt;dbl&gt; 5, 4, 4, 6, 4, 3, 4, 3, 5, 4, 4, 4, 3, 4, 2, 3, 3, 4, 4…
+## $ swls2021_4     &lt;dbl&gt; 5, 5, 5, 6, 4, 4, 3, 3, 4, 5, 4, 4, 4, 5, 3, 3, 4, 5, 4…
+## $ swls2021_5     &lt;dbl&gt; 4, 5, 5, 5, 5, 4, 3, 3, 5, 6, 5, 4, 3, 4, 3, 4, 5, 6, 4…</code></pre>
+</div>
+</div>
+<div id="factors" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Factors<a href="tidyverse.html#factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When you look at the output from <code>str(data)</code> or <code>glimpse(data)</code>, you can see that some values don’t seem to make sense on their own. For example, what do 0 and 1 in gender mean? From the legend table earlier, we can see that 0 stands for male and 1 stands for female. But having to consult the table every time we do an analysis is tiresome and also error-prone. So, we use the <code>factor()</code> command to tell R what those values mean for categorical variables.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="tidyverse.html#cb32-1" tabindex="-1"></a>data<span class="sc">$</span>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>gender, </span>
+<span id="cb32-2"><a href="tidyverse.html#cb32-2" tabindex="-1"></a>                      <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), </span>
+<span id="cb32-3"><a href="tidyverse.html#cb32-3" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>))</span>
+<span id="cb32-4"><a href="tidyverse.html#cb32-4" tabindex="-1"></a><span class="co"># this code is saying...</span></span>
+<span id="cb32-5"><a href="tidyverse.html#cb32-5" tabindex="-1"></a><span class="co"># we want to convert the variable gender into a factor</span></span>
+<span id="cb32-6"><a href="tidyverse.html#cb32-6" tabindex="-1"></a><span class="co"># this variable has two values / levels, 0 and 1 </span></span>
+<span id="cb32-7"><a href="tidyverse.html#cb32-7" tabindex="-1"></a><span class="co"># label 0 as “male” and 1 as “female”</span></span>
+<span id="cb32-8"><a href="tidyverse.html#cb32-8" tabindex="-1"></a><span class="co"># notice that male and female are enclosed in quotation marks (because they are non-numerical or string variables).</span></span>
+<span id="cb32-9"><a href="tidyverse.html#cb32-9" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="tidyverse.html#cb32-10" tabindex="-1"></a><span class="co"># Check that gender is now a factor with either glimpse() or str()</span></span>
+<span id="cb32-11"><a href="tidyverse.html#cb32-11" tabindex="-1"></a><span class="co"># They&#39;ll give you the same output</span></span>
+<span id="cb32-12"><a href="tidyverse.html#cb32-12" tabindex="-1"></a><span class="fu">glimpse</span>(data<span class="sc">$</span>gender)</span></code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;male&quot;,&quot;female&quot;: 1 2 2 2 2 1 2 1 2 1 ...</code></pre>
+</div>
+<div id="data-wrangling-with-dplyr" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Data Wrangling With dplyr<a href="tidyverse.html#data-wrangling-with-dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>What should we do after importing a dataset? Well, there are many things we can do! We might want to, say, select specific columns to analyse. Or we might want to select only participants who completed all the questions in the survey. Or we might want to create new variables from existing ones. Or we might want to get some descriptive statistics like mean and standard deviation. All of that is made possible with functions in the <code>dplyr</code> package in <code>tidyverse</code>.</p>
+<p>Some of the functions I’ve found useful in the <code>dplyr</code> package are:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">dplyr functions</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">select()</td>
+<td align="left">select specific columns</td>
+</tr>
+<tr class="even">
+<td align="left">filter()</td>
+<td align="left">filter (keep, select) specific rows</td>
+</tr>
+<tr class="odd">
+<td align="left">mutate()</td>
+<td align="left">create new variables / columns</td>
+</tr>
+<tr class="even">
+<td align="left">summarise()</td>
+<td align="left">summarise values in form of summary statistics</td>
+</tr>
+<tr class="odd">
+<td align="left">group_by()</td>
+<td align="left">apply operations to different groups</td>
+</tr>
+</tbody>
+</table>
+<p>There are more functions in the dplyr package! Check out the dplyr cheat sheet here: <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf</a>.</p>
+<p>When you go through the code below, you’ll notice that in <code>dplyr</code> (and also <code>tidyverse</code> in general), the pipe operator <code>%&gt;%</code> is used a lot. You can think of it as a symbol for “then”. For example <code>X %&gt;% Y</code> would be read as: Do X then take the result from that to do Y. Because it gets tiring to type the pipe operator so frequently, there’s a shortcut for it: Ctrl/Cmd + Shift + M. (You may see the pipe operator written as <code>|&gt;</code> but this is a new development as of 2023 and most users still use <code>%&gt;%</code> as their default pipe operator.)</p>
+<p>With that out of the way… Let’s go through the five functions!</p>
+<div id="select" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Select()<a href="tidyverse.html#select" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>select()</code> function allows us to select specific columns. This is especially useful if we have many columns to work with and we only want to focus on a few.</p>
+<p>Let’s say we only want to select <code>gender</code> and the <code>swls2019_1</code> to <code>swls2019_5</code> columns in the <code>SWB</code> dataset. Here’s how we would do it:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="tidyverse.html#cb34-1" tabindex="-1"></a>swls2019_only <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span>   <span class="co"># create the subset called &quot;swls2019_only&quot; from &quot;data&quot;, and then</span></span>
+<span id="cb34-2"><a href="tidyverse.html#cb34-2" tabindex="-1"></a>  <span class="fu">select</span>(gender, swls2019_1<span class="sc">:</span>swls2019_5)  <span class="co"># select gender and the columns swls2019_1 to swls2019_5</span></span></code></pre></div>
+<p>This is what the first six rows of <code>swls2019_only</code> look like:</p>
+<pre><code>## # A tibble: 6 × 6
+##   gender swls2019_1 swls2019_2 swls2019_3 swls2019_4 swls2019_5
+##   &lt;fct&gt;       &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+## 1 male            4          4          5          5          4
+## 2 female          5          6          5          6          6
+## 3 female          4          4          4          5          5
+## 4 female          6          5          7          6          5
+## 5 female          5          4          4          4          5
+## 6 male            5          4          4          5          4</code></pre>
+<p>I sometimes also use <code>select()</code> to re-arrange the order of the columns. (In <code>dplyr</code>, the “correct” function to re-arrange the order of the columns is <code>arrange()</code>. <code>arrange()</code> allows us to re-arrange rows in addition to columns. But <code>select()</code> works too!)</p>
+<p>So, let’s say we want the <code>swls2019_1</code> to <code>swls2019_5</code> columns to come <em>before</em> <code>gender</code>. We simply list the <code>swls2019_1</code> to <code>swls2019_5</code> columns before <code>gender</code>.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="tidyverse.html#cb36-1" tabindex="-1"></a>swls2019_genderlast <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span>   </span>
+<span id="cb36-2"><a href="tidyverse.html#cb36-2" tabindex="-1"></a>  <span class="fu">select</span>(swls2019_1<span class="sc">:</span>swls2019_5, gender)  </span></code></pre></div>
+<p>This is what the first six rows of <code>swls2019_genderlast</code> look like:</p>
+<pre><code>## # A tibble: 6 × 6
+##   swls2019_1 swls2019_2 swls2019_3 swls2019_4 swls2019_5 gender
+##        &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;fct&gt; 
+## 1          4          4          5          5          4 male  
+## 2          5          6          5          6          6 female
+## 3          4          4          4          5          5 female
+## 4          6          5          7          6          5 female
+## 5          5          4          4          4          5 female
+## 6          5          4          4          5          4 male</code></pre>
+</div>
+<div id="filter" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Filter()<a href="tidyverse.html#filter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Maybe we don’t want to select specific columns. Instead, we want to select specific kinds of participants to conduct our analyses on (e.g., say from specific treatment groups or maybe only male participants). In other words, we want to select specific rows. We use <code>filter()</code> to do that.</p>
+<p>New R users sometimes confuse <code>select()</code> with <code>filter()</code>. Here’s how to differentiate the two: <code>select()</code> is used to select columns (i.e., variables) whereas <code>filter()</code> is used to select rows (i.e., participants).</p>
+<p>So, let’s say we want to select only male participants.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="tidyverse.html#cb38-1" tabindex="-1"></a>male_only <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span>    <span class="co"># create &quot;male_only&quot; subset from &quot;data&quot;, and then </span></span>
+<span id="cb38-2"><a href="tidyverse.html#cb38-2" tabindex="-1"></a>  <span class="fu">filter</span>(gender <span class="sc">==</span> <span class="st">&quot;male&quot;</span>)  <span class="co"># filter (keep) only male participants</span></span></code></pre></div>
+<p>Notice that the double equal sign <code>==</code> is used here. In programming languages, the <code>==</code> sign is used when we are comparing the left and the right hand side. Here, we’re comparing each row of the column <code>gender</code> to the word “male”. If that row matches the word “male”, we will filter (keep) that row. Otherwise, we will toss it out.</p>
+<p>This is what the first six rows of <code>male_only</code> look like:</p>
+<pre><code>## # A tibble: 6 × 23
+##     pin gender marital_status have_children mvs_1 mvs_2 mvs_3 mvs_4 mvs_5 mvs_6
+##   &lt;dbl&gt; &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1 male                1             0     4     3     3     3     3     4
+## 2     6 male                1             1     3     4     4     5     4     3
+## 3     8 male                1             0     2     3     3     4     3     4
+## 4    10 male                1             1     2     3     3     4     2     2
+## 5    11 male                3             0     2     2     3     4     2     2
+## 6    14 male                3             0     2     3     2     2     3     3
+## # ℹ 13 more variables: mvs_7 &lt;dbl&gt;, mvs_8 &lt;dbl&gt;, mvs_9 &lt;dbl&gt;, swls2019_1 &lt;dbl&gt;,
+## #   swls2019_2 &lt;dbl&gt;, swls2019_3 &lt;dbl&gt;, swls2019_4 &lt;dbl&gt;, swls2019_5 &lt;dbl&gt;,
+## #   swls2021_1 &lt;dbl&gt;, swls2021_2 &lt;dbl&gt;, swls2021_3 &lt;dbl&gt;, swls2021_4 &lt;dbl&gt;,
+## #   swls2021_5 &lt;dbl&gt;</code></pre>
+</div>
+<div id="mutate" class="section level3 hasAnchor" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Mutate()<a href="tidyverse.html#mutate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes, we might want to create new variables, say averages or totals. We can do this with <code>mutate()</code>.</p>
+<p>Let’s say we want to find the average of <code>swls2019_1</code> to <code>swls2019_5</code> for each participant. We will use the subset we created just now, <code>swls2019_only</code> to do this.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="tidyverse.html#cb40-1" tabindex="-1"></a>swls2019_only <span class="ot">&lt;-</span> swls2019_only <span class="sc">%&gt;%</span> </span>
+<span id="cb40-2"><a href="tidyverse.html#cb40-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">swls2019_avg =</span> (swls2019_1 <span class="sc">+</span> swls2019_2 <span class="sc">+</span> swls2019_3 <span class="sc">+</span> swls2019_4 <span class="sc">+</span> swls2019_5) <span class="sc">/</span> <span class="dv">5</span>)</span>
+<span id="cb40-3"><a href="tidyverse.html#cb40-3" tabindex="-1"></a><span class="co"># this code is saying... </span></span>
+<span id="cb40-4"><a href="tidyverse.html#cb40-4" tabindex="-1"></a><span class="co"># create a variable called `swls2019_avg` by adding up swls2019_1 to swls2019_5 and then dividing the total by 5</span></span>
+<span id="cb40-5"><a href="tidyverse.html#cb40-5" tabindex="-1"></a><span class="co"># add this variable to the data frame swls2019_only</span></span></code></pre></div>
+<p>The first 6 rows of <code>swls2019_only</code> now looks like this:</p>
+<pre><code>## # A tibble: 6 × 7
+##   gender swls2019_1 swls2019_2 swls2019_3 swls2019_4 swls2019_5 swls2019_avg
+##   &lt;fct&gt;       &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt;
+## 1 male            4          4          5          5          4          4.4
+## 2 female          5          6          5          6          6          5.6
+## 3 female          4          4          4          5          5          4.4
+## 4 female          6          5          7          6          5          5.8
+## 5 female          5          4          4          4          5          4.4
+## 6 male            5          4          4          5          4          4.4</code></pre>
+<p>Notice that the <code>swls2019_avg</code> is now appended as the last column.</p>
+<p>You can achieve the same results using <code>rowMeans()</code>.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="tidyverse.html#cb42-1" tabindex="-1"></a>swls2019_only <span class="ot">&lt;-</span> swls2019_only <span class="sc">%&gt;%</span> </span>
+<span id="cb42-2"><a href="tidyverse.html#cb42-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">swls2019_avg_rowmeans =</span> <span class="fu">rowMeans</span>(<span class="fu">across</span>(<span class="fu">c</span>(swls2019_1<span class="sc">:</span>swls2019_5))))</span>
+<span id="cb42-3"><a href="tidyverse.html#cb42-3" tabindex="-1"></a><span class="co"># rowMeans(across(c(swls2019_1:swls2019_5))) tells R that we want to find the mean (average) for each row (hence rowMeans) across the set of five variables, swls2019_1 to swls2019_5. </span></span></code></pre></div>
+<p>Let’s compare <code>swls2019_avg</code> and <code>swls2019_avg_rowmeans</code> for the first 6 rows:</p>
+<pre><code>## # A tibble: 6 × 2
+##   swls2019_avg swls2019_avg_rowmeans
+##          &lt;dbl&gt;                 &lt;dbl&gt;
+## 1          4.4                   4.4
+## 2          5.6                   5.6
+## 3          4.4                   4.4
+## 4          5.8                   5.8
+## 5          4.4                   4.4
+## 6          4.4                   4.4</code></pre>
+<p>You should notice that the two columns give you the exact same results.</p>
+</div>
+<div id="summarise" class="section level3 hasAnchor" number="3.4.4">
+<h3><span class="header-section-number">3.4.4</span> Summarise()<a href="tidyverse.html#summarise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>summarise()</code> function is used when we want to get summary statistics such as the mean, median, maximum, minimum, etc for a given column in the data frame.</p>
+<p>Let’s say we’re interested to know the mean (<code>avg_swls</code>), minimum (<code>min_swls</code>), maximum (<code>max_swls</code>), variance (<code>var_swls</code>), standard deviation (<code>sd_swls</code>), total number of participants (<code>total</code>) for <code>swls2019_avg</code>. Again, we will use our <code>swls2019_only</code> subset.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="tidyverse.html#cb44-1" tabindex="-1"></a>swls2019_only <span class="sc">%&gt;%</span> </span>
+<span id="cb44-2"><a href="tidyverse.html#cb44-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_swls =</span> <span class="fu">mean</span>(swls2019_avg), </span>
+<span id="cb44-3"><a href="tidyverse.html#cb44-3" tabindex="-1"></a>            <span class="at">min_swls =</span> <span class="fu">min</span>(swls2019_avg), </span>
+<span id="cb44-4"><a href="tidyverse.html#cb44-4" tabindex="-1"></a>            <span class="at">max_swls =</span> <span class="fu">max</span>(swls2019_avg), </span>
+<span id="cb44-5"><a href="tidyverse.html#cb44-5" tabindex="-1"></a>            <span class="at">var_swls =</span> <span class="fu">var</span>(swls2019_avg), </span>
+<span id="cb44-6"><a href="tidyverse.html#cb44-6" tabindex="-1"></a>            <span class="at">sd_swls =</span> <span class="fu">sd</span>(swls2019_avg), </span>
+<span id="cb44-7"><a href="tidyverse.html#cb44-7" tabindex="-1"></a>            <span class="at">total =</span> <span class="fu">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 6
+##   avg_swls min_swls max_swls var_swls sd_swls total
+##      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;
+## 1     4.35        2        6    0.588   0.767   343</code></pre>
+<p>To be honest, though, I think it might be more convenient to get these summary statistics using the <code>describe()</code> function from the <code>psych()</code> package.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="tidyverse.html#cb46-1" tabindex="-1"></a><span class="co"># Load package (install the package before loading!)</span></span>
+<span id="cb46-2"><a href="tidyverse.html#cb46-2" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code></pre></div>
+<pre><code>## Warning: package &#39;psych&#39; was built under R version 4.3.1</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="tidyverse.html#cb48-1" tabindex="-1"></a><span class="co"># Get the most common descriptive statistics</span></span>
+<span id="cb48-2"><a href="tidyverse.html#cb48-2" tabindex="-1"></a><span class="fu">describe</span>(swls2019_only<span class="sc">$</span>swls2019_avg)</span></code></pre></div>
+<pre><code>##    vars   n mean   sd median trimmed  mad min max range skew kurtosis   se
+## X1    1 343 4.35 0.77    4.4    4.33 0.89   2   6     4  0.1    -0.48 0.04</code></pre>
+</div>
+<div id="group_by" class="section level3 hasAnchor" number="3.4.5">
+<h3><span class="header-section-number">3.4.5</span> Group_by()<a href="tidyverse.html#group_by" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes, we might want to apply the same function to different groups of people. For example, we might want to know what the maximum swls score is for males and for females separately. We can use the <code>group_by()</code> function to do this.</p>
+<p>Let’s say we’re interested to know the mean (<code>avg_swls</code>), minimum (<code>min_swls</code>), maximum (<code>max_swls</code>), variance (<code>var_swls</code>), standard deviation (<code>sd_swls</code>), total number of participants (<code>total</code>) for <code>swls2019_avg</code> for males and females separately.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="tidyverse.html#cb50-1" tabindex="-1"></a>swls2019_only <span class="sc">%&gt;%</span> </span>
+<span id="cb50-2"><a href="tidyverse.html#cb50-2" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb50-3"><a href="tidyverse.html#cb50-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_swls =</span> <span class="fu">mean</span>(swls2019_avg), </span>
+<span id="cb50-4"><a href="tidyverse.html#cb50-4" tabindex="-1"></a>            <span class="at">min_swls =</span> <span class="fu">min</span>(swls2019_avg), </span>
+<span id="cb50-5"><a href="tidyverse.html#cb50-5" tabindex="-1"></a>            <span class="at">max_swls =</span> <span class="fu">max</span>(swls2019_avg), </span>
+<span id="cb50-6"><a href="tidyverse.html#cb50-6" tabindex="-1"></a>            <span class="at">var_swls =</span> <span class="fu">var</span>(swls2019_avg), </span>
+<span id="cb50-7"><a href="tidyverse.html#cb50-7" tabindex="-1"></a>            <span class="at">sd_swls =</span> <span class="fu">sd</span>(swls2019_avg), </span>
+<span id="cb50-8"><a href="tidyverse.html#cb50-8" tabindex="-1"></a>            <span class="at">total =</span> <span class="fu">n</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 7
+##   gender avg_swls min_swls max_swls var_swls sd_swls total
+##   &lt;fct&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;
+## 1 male       4.08        3      5.8    0.373   0.611   168
+## 2 female     4.62        2      6      0.657   0.810   175</code></pre>
+<p>Again, I think that the <code>describeBy()</code> function from the <code>psych</code> package would be much more convenient here.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="tidyverse.html#cb52-1" tabindex="-1"></a><span class="fu">describeBy</span>(swls2019_only<span class="sc">$</span>swls2019_avg, </span>
+<span id="cb52-2"><a href="tidyverse.html#cb52-2" tabindex="-1"></a>           <span class="at">group =</span> swls2019_only<span class="sc">$</span>gender)</span></code></pre></div>
+<pre><code>## 
+##  Descriptive statistics by group 
+## group: male
+##    vars   n mean   sd median trimmed  mad min max range skew kurtosis   se
+## X1    1 168 4.08 0.61    4.2    4.06 0.59   3 5.8   2.8 0.26    -0.46 0.05
+## ------------------------------------------------------------ 
+## group: female
+##    vars   n mean   sd median trimmed  mad min max range  skew kurtosis   se
+## X1    1 175 4.62 0.81    4.6    4.65 0.89   2   6     4 -0.35    -0.25 0.06</code></pre>
+<p>I’ve shown in some examples above that we can combine different dplyr functions such as <code>group_by()</code> and <code>summarise()</code> to achieve specific results. I encourage you to play around with the combinations to see what results they lead to!</p>
+</div>
+</div>
+<div id="tables-and-plots-with-ggplot2" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Tables and Plots with ggplot2<a href="tidyverse.html#tables-and-plots-with-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Okay, so what else can we do with the data? Well, we can create tables and graphs! But why might we do this? Well… Tables and graphs provide us a way to visualize the data. They show us the distribution of the data and allow us to discover any errors or interesting patterns.</p>
+<p>Let’s start with the frequency (distribution) tables.</p>
+<div id="frequency-tables" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Frequency Tables<a href="tidyverse.html#frequency-tables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A frequency (distribution) table tells us the number of times each data value occurs for a given variable.</p>
+<p>Let’s say we want to know how many males and how many females participated in the study using the <code>swls2019_only</code> subset. The variable is <code>gender</code> and the data values we are interested in are <code>male</code> and <code>female</code>. Let’s find out!</p>
+<p>Before looking at my code below, try coming up with your own! (HINT: Use the <code>summarise()</code> function!)</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="tidyverse.html#cb54-1" tabindex="-1"></a>swls2019_only <span class="sc">%&gt;%</span> </span>
+<span id="cb54-2"><a href="tidyverse.html#cb54-2" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span>  <span class="co"># Group the result by gender</span></span>
+<span id="cb54-3"><a href="tidyverse.html#cb54-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">freq =</span> <span class="fu">n</span>())  <span class="co"># Count how many of each value in the data</span></span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   gender  freq
+##   &lt;fct&gt;  &lt;int&gt;
+## 1 male     168
+## 2 female   175</code></pre>
+<p>The output tells us 168 males and 175 females participated in the study.</p>
+<p>The number of times a data value occurs for a given variable is called the absolute frequency. If we want the relative frequency (i.e., the number of times a data value occurs relative to the total number of observations for a given variable), then we divide the absolute frequency by the total number of values.</p>
+<p>Again, try this on your own before looking at my code. (HINT: Use the <code>summarise()</code> function and then the <code>mutate()</code> function!)</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="tidyverse.html#cb56-1" tabindex="-1"></a>swls2019_only <span class="sc">%&gt;%</span> </span>
+<span id="cb56-2"><a href="tidyverse.html#cb56-2" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span>   <span class="co"># Group the result by gender</span></span>
+<span id="cb56-3"><a href="tidyverse.html#cb56-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">freq =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span>  <span class="co"># Count how many of each value in the data </span></span>
+<span id="cb56-4"><a href="tidyverse.html#cb56-4" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">total =</span> <span class="fu">sum</span>(freq),  <span class="co"># Count the total number of observations </span></span>
+<span id="cb56-5"><a href="tidyverse.html#cb56-5" tabindex="-1"></a>          <span class="at">rel_freq =</span> freq <span class="sc">/</span> total)  <span class="co"># Take the frequency of each value / total number of observations</span></span></code></pre></div>
+<pre><code>## # A tibble: 2 × 4
+##   gender  freq total rel_freq
+##   &lt;fct&gt;  &lt;int&gt; &lt;int&gt;    &lt;dbl&gt;
+## 1 male     168   343    0.490
+## 2 female   175   343    0.510</code></pre>
+<p>The output (rel_freq) tells us that slightly less than half the sample are males (0.49) and slightly more than half are females (0.51).</p>
+<p>Relative frequency is a proportion and may be difficult for some people to interpret. For easier interpretation, we can convert the proportions into percentages by taking 100%.</p>
+<p>Try converting the proportions into percentages on your own before looking at my code below!</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="tidyverse.html#cb58-1" tabindex="-1"></a>swls2019_only <span class="sc">%&gt;%</span> </span>
+<span id="cb58-2"><a href="tidyverse.html#cb58-2" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span>   </span>
+<span id="cb58-3"><a href="tidyverse.html#cb58-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">freq =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span>   </span>
+<span id="cb58-4"><a href="tidyverse.html#cb58-4" tabindex="-1"></a>  <span class="fu">mutate</span> (<span class="at">total =</span> <span class="fu">sum</span>(freq), </span>
+<span id="cb58-5"><a href="tidyverse.html#cb58-5" tabindex="-1"></a>          <span class="at">rel_freq =</span> freq <span class="sc">/</span> total, </span>
+<span id="cb58-6"><a href="tidyverse.html#cb58-6" tabindex="-1"></a>          <span class="at">percentage =</span> rel_freq <span class="sc">*</span> <span class="dv">100</span>)  </span></code></pre></div>
+<pre><code>## # A tibble: 2 × 5
+##   gender  freq total rel_freq percentage
+##   &lt;fct&gt;  &lt;int&gt; &lt;int&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+## 1 male     168   343    0.490       49.0
+## 2 female   175   343    0.510       51.0</code></pre>
+</div>
+<div id="bar-plots-with-ggplot2" class="section level3 hasAnchor" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Bar Plots with ggplot2<a href="tidyverse.html#bar-plots-with-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Instead of using a frequency table, maybe you want a bar chart or bar plot to visually represent the frequency distribution instead. (Note that bar charts or bar plots are used for categorical variables only.)</p>
+<p>We will use <code>ggplot2</code>, a package developed for data visualization, which is part of the <code>tidyverse</code> collection. Every plot in <code>ggplot2</code> is plotted with three components: data, aesthetics, and geometry.</p>
+<ul>
+<li>Data: specifies the data frame</li>
+<li>Aesthetics: specifies the variables that we want to plot as well as aesthetics, like colour</li>
+<li>Geometry: specifies the type of plot &amp; other modifications</li>
+</ul>
+<p>These three components apply when we make any plot in ggplot2. Let’s make a bar chart with <code>ggplot2</code> with the code below.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="tidyverse.html#cb60-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> swls2019_only, <span class="fu">aes</span>(<span class="at">x =</span> gender)) <span class="sc">+</span>  <span class="co"># dataset used is swls2019_only, x (horizontal axis) is gender</span></span>
+<span id="cb60-2"><a href="tidyverse.html#cb60-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;count&quot;</span>)  <span class="co"># we want a bar plot where the statistic is the count of the values in x </span></span></code></pre></div>
+<p><img src="PSYC201_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p>Here’s an alternative that will give you the exact same output.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="tidyverse.html#cb61-1" tabindex="-1"></a><span class="co"># Alternative</span></span>
+<span id="cb61-2"><a href="tidyverse.html#cb61-2" tabindex="-1"></a>swls2019_only <span class="sc">%&gt;%</span>  <span class="co"># dataset used is swls2019_only</span></span>
+<span id="cb61-3"><a href="tidyverse.html#cb61-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(.) <span class="sc">+</span>  <span class="co"># R takes swls2019_only in the previous line and places it in the . on this line to tell ggplot that dataset used is swls2019_only</span></span>
+<span id="cb61-4"><a href="tidyverse.html#cb61-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> gender), <span class="at">stat=</span><span class="st">&quot;count&quot;</span>)  <span class="co"># we want a bar plot where x (horizontal axis) is gender and the statistic is the count of values in x</span></span></code></pre></div>
+<p>Notice that the <code>aes()</code> command can be either in the ggplot line or the geom function line. In this case, where you type it doesn’t affect the results at all. (Try this out yourself to confirm!)</p>
+<p>I personally prefer the alternative because it’s easier for me to read, but it doesn’t matter to me which you use so long as it works!</p>
+</div>
+<div id="histograms-with-ggplot2" class="section level3 hasAnchor" number="3.5.3">
+<h3><span class="header-section-number">3.5.3</span> Histograms with ggplot2<a href="tidyverse.html#histograms-with-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We create bar plots for categorical variables (such as gender). For continuous variables which can take on infinite values (such as time), we create histograms.</p>
+<p>A histogram is a visual representation of the frequency table for a given continuous variable (i.e., it shows us the frequency distribution, or the frequency of scores for a given continuous variable).</p>
+<p>Let’s use <code>ggplot2</code> to make a histogram for <code>swls2019_avg</code> with a very basic code.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="tidyverse.html#cb62-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> swls2019_only, <span class="fu">aes</span>(<span class="at">x =</span> swls2019_avg)) <span class="sc">+</span> </span>
+<span id="cb62-2"><a href="tidyverse.html#cb62-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()  <span class="co"># we want a histogram, so geom_histogram() is used</span></span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="PSYC201_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p>As with the bar chart, you could do this instead and the results would be the same:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="tidyverse.html#cb64-1" tabindex="-1"></a><span class="co"># Alternative</span></span>
+<span id="cb64-2"><a href="tidyverse.html#cb64-2" tabindex="-1"></a>swls2019_only <span class="sc">%&gt;%</span> </span>
+<span id="cb64-3"><a href="tidyverse.html#cb64-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(.) <span class="sc">+</span> </span>
+<span id="cb64-4"><a href="tidyverse.html#cb64-4" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> swls2019_avg))</span></code></pre></div>
+<p>Now, the histogram that you got is okay, but kinda basic… Maybe you want to customise it. For example, you might want to add a specific label for the y-axis or the x-axis… Or maybe you want to change the colour of the graph! You can customise all of that! Here are some ideas.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="tidyverse.html#cb65-1" tabindex="-1"></a><span class="co"># Assign color “red” to the object barfill (which we will use below to change the colour of the bars).</span></span>
+<span id="cb65-2"><a href="tidyverse.html#cb65-2" tabindex="-1"></a>barfill <span class="ot">&lt;-</span> <span class="st">&quot;red&quot;</span> </span>
+<span id="cb65-3"><a href="tidyverse.html#cb65-3" tabindex="-1"></a></span>
+<span id="cb65-4"><a href="tidyverse.html#cb65-4" tabindex="-1"></a><span class="co"># Assign color “black” to the object barlines (which we will use below to change the colour of the barlines).</span></span>
+<span id="cb65-5"><a href="tidyverse.html#cb65-5" tabindex="-1"></a>barlines <span class="ot">&lt;-</span> <span class="st">&quot;black&quot;</span> </span>
+<span id="cb65-6"><a href="tidyverse.html#cb65-6" tabindex="-1"></a></span>
+<span id="cb65-7"><a href="tidyverse.html#cb65-7" tabindex="-1"></a><span class="co"># Specify the data frame and the variables to plot</span></span>
+<span id="cb65-8"><a href="tidyverse.html#cb65-8" tabindex="-1"></a><span class="fu">ggplot</span>(swls2019_only, <span class="fu">aes</span>(<span class="at">x =</span> swls2019_avg)) <span class="sc">+</span> </span>
+<span id="cb65-9"><a href="tidyverse.html#cb65-9" tabindex="-1"></a><span class="co"># Specify the type of plot and binwidth</span></span>
+<span id="cb65-10"><a href="tidyverse.html#cb65-10" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, </span>
+<span id="cb65-11"><a href="tidyverse.html#cb65-11" tabindex="-1"></a><span class="co"># Specify the border of the bars</span></span>
+<span id="cb65-12"><a href="tidyverse.html#cb65-12" tabindex="-1"></a>                   <span class="at">color =</span> barlines, </span>
+<span id="cb65-13"><a href="tidyverse.html#cb65-13" tabindex="-1"></a><span class="co"># Specify the color of the bar</span></span>
+<span id="cb65-14"><a href="tidyverse.html#cb65-14" tabindex="-1"></a>                   <span class="at">fill =</span> barfill) <span class="sc">+</span> </span>
+<span id="cb65-15"><a href="tidyverse.html#cb65-15" tabindex="-1"></a><span class="co"># Label the x-axis</span></span>
+<span id="cb65-16"><a href="tidyverse.html#cb65-16" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">&quot;2019 Satisfaction With Life Scores&quot;</span>, </span>
+<span id="cb65-17"><a href="tidyverse.html#cb65-17" tabindex="-1"></a><span class="co"># Force the graph to start at x = 0</span></span>
+<span id="cb65-18"><a href="tidyverse.html#cb65-18" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), </span>
+<span id="cb65-19"><a href="tidyverse.html#cb65-19" tabindex="-1"></a><span class="co"># Force the graph to end at x = 7</span></span>
+<span id="cb65-20"><a href="tidyverse.html#cb65-20" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">7</span>)) <span class="sc">+</span> </span>
+<span id="cb65-21"><a href="tidyverse.html#cb65-21" tabindex="-1"></a><span class="co"># Label the y-axis</span></span>
+<span id="cb65-22"><a href="tidyverse.html#cb65-22" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Frequency&quot;</span>, </span>
+<span id="cb65-23"><a href="tidyverse.html#cb65-23" tabindex="-1"></a><span class="co"># Force the graph to start at y = 0</span></span>
+<span id="cb65-24"><a href="tidyverse.html#cb65-24" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), </span>
+<span id="cb65-25"><a href="tidyverse.html#cb65-25" tabindex="-1"></a><span class="co"># No maximum limit to y (hence, NA)</span></span>
+<span id="cb65-26"><a href="tidyverse.html#cb65-26" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>)) <span class="sc">+</span> </span>
+<span id="cb65-27"><a href="tidyverse.html#cb65-27" tabindex="-1"></a><span class="co"># Give the histogram a title.</span></span>
+<span id="cb65-28"><a href="tidyverse.html#cb65-28" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">&quot;Histogram of SWLS2019&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing missing values (`geom_bar()`).</code></pre>
+<p><img src="PSYC201_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<p>Note that when you set limits on the graph, it throws up a warning: <em>Warning: Removed 2 rows containing missing values (<code>geom_bar()</code>).</em> This is a known issue, but is apparently too complex to resolve (see: <a href="https://github.com/tidyverse/ggplot2/issues/4083" class="uri">https://github.com/tidyverse/ggplot2/issues/4083</a>). You may safely ignore it if your limits are beyond the minimum and maximum values of your axes. For example, suppose your minimum value for the x-axis is 1 and your maximum value is 7. If you set the limits to 0 and 8, it should comprise all values in your dataset. You can find the minimum and maximum values using the <code>summarise()</code> function, or simply use <code>max()</code> or <code>min()</code>.</p>
+</div>
+<div id="scatterplot-with-ggplot2" class="section level3 hasAnchor" number="3.5.4">
+<h3><span class="header-section-number">3.5.4</span> Scatterplot with ggplot2<a href="tidyverse.html#scatterplot-with-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>So far, we’ve been focusing on single variables (e.g., <code>gender</code> and <code>swls2019_avg</code>). What if we’re interested in the relationship between two continuous variables? Here is where we might want to plot a scatterplot!</p>
+<p>A scatterplot is a graph of pairs of values for each subject or individual. Specifically, each individual provides two observations, one for each variable. One of the variables will be plotted along the x-axis and the other along the y-axis.</p>
+<p>So, suppose we’re interested in plotting the relationship between two items from the SWLS2019 dataset: <code>swls2019_1</code> and <code>swls2019_2</code>. Why might we be interested in this? Well, the reasoning goes something like this: Both items supposedly measure satisfaction with life. So, if a participant scores higher on one item than another participant, they should also score higher on the other item. To confirm this, we can plot a scatterplot.</p>
+<p>Here’s the basic code for a scatterplot in <code>ggplot2</code>:</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="tidyverse.html#cb67-1" tabindex="-1"></a>swls2019_only <span class="sc">%&gt;%</span> </span>
+<span id="cb67-2"><a href="tidyverse.html#cb67-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(.) <span class="sc">+</span> </span>
+<span id="cb67-3"><a href="tidyverse.html#cb67-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> swls2019_1, <span class="at">y =</span> swls2019_2)) <span class="sc">+</span>  <span class="co"># A scatterplot is a plot of points on a graph. So we use geom_point.</span></span>
+<span id="cb67-4"><a href="tidyverse.html#cb67-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;swls2019_1: In most ways my life is close to my ideal&quot;</span>,</span>
+<span id="cb67-5"><a href="tidyverse.html#cb67-5" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;swls2019_2: The conditions of my life are excellent&quot;</span>, </span>
+<span id="cb67-6"><a href="tidyverse.html#cb67-6" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;As swls2019_1 increases, swls2019_2 also increases&quot;</span>)  <span class="co"># labs() is another way to add labels. You can also add a title using the labs() function, which by default is left-aligned. </span></span></code></pre></div>
+<p><img src="PSYC201_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<p>From the scatterplot, we see that indeed, as <code>swls2019_1</code> increases, <code>swls2019_2</code> increases.</p>
+<p>Like the histogram, there are many different customisations beyond the basics I’ve shown you here. You can refer to this website for more: <a href="https://t-redactyl.io/blog/2016/02/creating-plots-in-r-using-ggplot2-part-5-scatterplots.html" class="uri">https://t-redactyl.io/blog/2016/02/creating-plots-in-r-using-ggplot2-part-5-scatterplots.html</a>.</p>
+</div>
+<div id="last-words-1" class="section level3 hasAnchor" number="3.5.5">
+<h3><span class="header-section-number">3.5.5</span> Last Words<a href="tidyverse.html#last-words-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I’ve only just scratched the surface of plots in this tutorial. For more, visit here: <a href="https://t-redactyl.io/tag/r-graphing-tutorials.html" class="uri">https://t-redactyl.io/tag/r-graphing-tutorials.html</a>. Or here: <a href="https://r4ds.had.co.nz/data-visualisation.html" class="uri">https://r4ds.had.co.nz/data-visualisation.html</a>. And here’s a link to the ggplot2 cheatsheet: <a href="https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf" class="uri">https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf</a>.</p>
+<p>Now that you’ve gotten to this point, I think you’re ready to do the next exercise! Proceed to the <a href="#tha2">next section</a>!</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="basics.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/hueywoon/assignment/blob/master/03-tidyverse.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

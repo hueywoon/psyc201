@@ -1,0 +1,86 @@
+# Using Packages {#packages}
+
+You can think of packages as collections of R codes (and more!) that other people have created to make R more powerful or easier to use. There are many different packages that serve different functions. Regardless which package you use, you need to both install and load the package. 
+
+In this section, we will demonstrate how to install, load, and use the `sylcount` package, which computes Flesch Reading Ease scores to estimate the readability of the items in a scale.
+
+## Installing and Loading sylcount
+
+To install `sylcount`, use the function `install.packages()`. Make sure you are connected to the internet. The packages will be downloaded from an R server and automatically installed. It's very common for R packages to rely on other packages to work correctly. To make sure all necessary packages are downloaded, the command below includes the specification `dependencies = T`.
+
+```{r eval = FALSE}
+
+install.packages("sylcount", dependencies = TRUE)
+
+```
+
+Even after we have installed `sylcount`, we cannot use it unless we load it. To load it, we need the `library()` function. 
+
+```{r echo = TRUE, message = FALSE, warning = FALSE, error = FALSE}
+
+library(sylcount)
+
+```
+
+Note that we only need to install each package once. But we need to load the package each time we re-start RStudio. (Think of the package like a genie that goes to sleep each time you close RStudio. If you need the genie to do stuff for you the next time around, you need to awaken it again!)
+
+## Using sylcount
+
+Now, suppose we have two items in our scale: 
+
+- Assess your level of subjective well-being over the past fortnight.
+- How happy have you been over the past two weeks?
+
+### Readability of Each Item
+
+Let's say we want to know how readable each item is. To do that, we will first store our items as individual R objects. 
+
+```{r}
+
+# Store the first item as item1
+item1 <- " Assess your level of subjective well-being over the past fortnight."
+
+# Store the second item as item2
+item2 <- " How happy have you been over the past two weeks?"
+
+```
+
+Notice that we added a space after the first quotation mark for each object. Later, we will combine all the items into a single text sample. Adding a space after the first quotation mark ensures that the number of words is computed correctly when we combine the items.
+
+Then, we will use the `readability()` function from the `sylcount` package to compute the readability of each item. 
+
+```{r}
+
+# Readability for item1 
+readability(item1)
+
+# Readability for item2
+readability(item2)
+
+```
+
+The Flesch Reading Ease score is presented under the 're' column. 
+
+Remember that the Flesch Reading Ease score ranges from 0 (difficult to understand) to 100 (easy to understand). We want to aim for a score over 60. 
+
+### Readability of All Items
+
+What if we want to compute the readability of all items? To do this, we first paste all the items into a single object using the `paste0()` function. 
+
+```{r}
+
+all_items <- paste0(item1, item2)
+
+```
+
+Then we run the readability check. 
+
+```{r}
+
+readability(all_items)
+
+```
+
+And that's it! Congratulations! You've learnt how to install, load, and use a package to find out the readability of items in a scale!
+
+In the [following section](#reliability), we will use more packages (yay!) to find the reliability of a scale. 

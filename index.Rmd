@@ -1,0 +1,19 @@
+---
+title: "PSYC201 R Companion Website"
+author: "William TOV & Huey Woon LEE"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+# output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: hueywoon/psyc201
+description: "This is the companion website to Prof. William Tov's PSYC201 class."
+---
+
+# About This Website {.unnumbered}
+
+This is the R companion website for Prof. William Tov's PSYC201 class. 
+
+_Note._ Students who have taken PSYC208 under Prof. Huey Woon Lee would already have seen parts of this in the [PSYC208 R companion website](https://hueywoon.github.io/assignment). If so, then you may skip the getting started and basics sections. :) 

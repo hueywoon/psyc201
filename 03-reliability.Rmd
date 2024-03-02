@@ -1,0 +1,132 @@
+# Reliability {#reliability}
+
+A scale typically has multiple items. Because each item in the scale is supposed to measure the same construct, instead of looking at each item separately, it is more efficient to combine participants’ responses to these multiple items into a single score. This single score is then the variable that operationalises our construct. However, because participants do not always respond to items in the way that researchers intend, we should first check that the pattern of responses is consistent with our expectations (i.e., check which items are positively / negatively related to each other). We also need to check whether the items have adequate reliability. 
+
+## Dataset
+
+To demonstrate how we do those checks, we will use the following dataset: [SE Data](SE Data.RData). (Download the dataset by clicking on the hyperlink.) This hypothetical dataset contains 23 participants' responses to the Rosenberg Self-Esteem Scale. 
+
+The Rosenberg Self-Esteem Scale has 10 items and is rated on a 4-point Likert scale, where 1 = Strongly agree, 2 = Agree, 3 = Disagree, 4 = Strongly disagree. The 10 items are: 
+
+- V33 On the whole, I am satisfied with myself.
+- V34 At times I think I am no good at all. (reverse-keyed item)
+- V35 I feel that I have a number of good qualities.
+- V36 I am able to do things as well as most other people.
+- V37 I feel I do not have much to be proud of. (reverse-keyed item)
+- V38 I certainly feel useless at times. (reverse-keyed item)
+- V39 I feel that I'm a person of worth.
+- V40 I wish I could have more respect for myself. (reverse-keyed item)
+- V41 All in all, I am inclined to think that I am a failure. (reverse-keyed item)
+- V42 I take a positive attitude toward myself. 
+
+Notice here that V34, V37, V38, V40, V41 are reverse-keyed items.
+
+## Install and Load Packages
+
+Before we start, we first need to install and load two packages: `tidyverse` and `psych`. Let's install those packages...
+
+
+```{r eval = FALSE}
+
+install.packages("psych", dependencies = T)
+install.packages("tidyverse", dependencies = T)
+
+```
+
+... and load them. 
+
+```{r echo = TRUE, message = FALSE, warning = FALSE, error = FALSE}
+
+library(psych)
+library(tidyverse)
+
+```
+
+## Set Working Directory and Load Dataset
+
+Now, we need to set the working directory and load the dataset. 
+
+The reason we need to set the working directory is that we need to tell R where to find the RData file that we saved just now. To do that, in RStudio, go to Session > Set Working Directory > Choose Directory. Select the folder where you saved the RData file. 
+
+Now that we've set the working directory, load the dataset using the `load()` function. 
+
+```{r}
+
+load("SE Data.RData")
+
+```
+
+To view the data, either go to the Environment tab and click on `esteem` or type `view(esteem)` into the console. There should be a total of 23 rows and 10 columns. Each row represents one participant; each column represents one item on the Rosenberg Self-Esteem Scale. The column header tells us which item each column represents. 
+
+## Descriptives
+
+Now that we have the data loaded, let's get some descriptive statistics using the `describe()` function from the `psych` package. 
+
+```{r}
+
+describe(esteem)
+
+```
+
+This gives us the mean, SD, and other descriptive statistics for each item. The minimum and maximum are particularly useful here because it allows us to check if there are any erroneous data (e.g., values of 10). 
+
+## Reverse Scoring
+
+As mentioned earlier, V34, V37, V38, V40, V41 are reverse-keyed items. This means that we need to reverse score them (i.e., convert values of 1 to 4, 2 to 3, 3 to 2, and 4 to 1). To do that, we will use the following formula: `(max possible value on likert scale + min possible value on likert scale) - observation`. (For the esteem items, the max possible value is 4 and the min possible value is 1.)
+
+We will apply that formula across the 5 columns containing the reverse-keyed items. 
+
+```{r}
+
+esteem %>%
+  mutate(4 + 1 - across(c(V34, V37, V38, V40, V41), 
+                        .names = "{col}_r")) %>%
+  view(., "check")
+
+```
+
+The above code is saying this: Go to the data frame `esteem` and then mutate (create new columns) by taking 4 + 1 - each of this set of columns (V34, V37, V38, V40, V41). Give the new columns names (.names) by taking the name of the original columns ({col}) and adding `_r`. Then, view the result of the reverse scoring (and call that window "check"). 
+
+Check that the reverse-keyed items have been reverse-scored properly (e.g., values of 1 on the original item are now 4 after reverse scoring and vice versa.)
+
+If all is good, then proceed to save the changes by overwriting `esteem` (using `esteem <- `) and removing `view(., "check")`.
+
+```{r}
+
+esteem <- esteem %>%
+  mutate(4 + 1 - across(c(V34, V37, V38, V40, V41), 
+                        .names = "{col}_r"))
+
+```
+
+## Correlations
+
+After completing the reverse scoring, we can check the correlations to make sure that the items are generally positively correlated with each other. This is an optional second check to ensure that we have recoded the reverse-keyed items properly. 
+
+```{r}
+
+esteem %>%
+  select(V33, V35, V36, V39, V42, V34_r, V37_r, V38_r, V40_r, V41_r) %>%
+  corr.test(.)
+
+```
+
+The code above is saying: Go to the data frame `esteem` and then select (choose) this set of columns (V33, V35, V36, V39, V42, V34_r, V37_r, V38_r, V40_r, V41_r). Then perform the correlation test (corr.test) on the columns. Notice that we included only the recoded reverse-keyed items and not the uncoded reverse-keyed items.  
+
+## Alpha Reliability
+
+Now we can check the reliability of the full scale using Cronbach's alpha. Cronbach's alpha should only be computed among items that are generally positively correlated. So like for correlation, we included only the recoded reverse-keyed items and not the uncoded reverse-keyed items.
+
+```{r}
+
+esteem %>%
+  select(V33, V35, V36, V39, V42, V34_r, V37_r, V38_r, V40_r, V41_r) %>%
+  psych::alpha(.)
+
+```
+
+The code above is saying: Go to the data frame `esteem` and then select (choose) this set of columns (V33, V35, V36, V39, V42, V34_r, V37_r, V38_r, V40_r, V41_r). Then calculate the alpha using the alpha function from the psych package (`psych::alpha(.)`). 
+
+The reason we use `psych::alpha()` instead of just `alpha()` is that the tidyverse package also has an `alpha()` function. We need to specify which package's function we want to use. 
+
+The Cronbach's alpha generally ranges from 0 (completely unreliable) to 1 (perfectly reliable), with higher values indicating better scale reliability. 

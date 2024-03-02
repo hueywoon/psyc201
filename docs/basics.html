@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Basics | PSYC201 R Companion Website</title>
+  <meta name="description" content="This is the companion website to Prof. William Tov’s PSYC201 class." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Basics | PSYC201 R Companion Website" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is the companion website to Prof. William Tov’s PSYC201 class." />
+  <meta name="github-repo" content="hueywoon/psyc201" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Basics | PSYC201 R Companion Website" />
+  
+  <meta name="twitter:description" content="This is the companion website to Prof. William Tov’s PSYC201 class." />
+  
+
+<meta name="author" content="William TOV &amp; Huey Woon LEE" />
+
+
+<meta name="date" content="2024-03-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="start.html"/>
+<link rel="next" href="packages.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="lib/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/style.css" type="text/css" />
+<link rel="stylesheet" href="lib/css/lesson.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PSYC201 R Companion Website</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About This Website</a></li>
+<li class="chapter" data-level="1" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>1</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="start.html"><a href="start.html#install-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> Install R and RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="start.html"><a href="start.html#the-rstudio-interface"><i class="fa fa-check"></i><b>1.2</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="1.3" data-path="start.html"><a href="start.html#r-script"><i class="fa fa-check"></i><b>1.3</b> R Script</a></li>
+<li class="chapter" data-level="1.4" data-path="start.html"><a href="start.html#some-tips-and-tricks"><i class="fa fa-check"></i><b>1.4</b> Some Tips and Tricks</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="start.html"><a href="start.html#softwrap-long-lines"><i class="fa fa-check"></i><b>1.4.1</b> Softwrap Long Lines</a></li>
+<li class="chapter" data-level="1.4.2" data-path="start.html"><a href="start.html#make-notes-or-comments"><i class="fa fa-check"></i><b>1.4.2</b> Make Notes or Comments</a></li>
+<li class="chapter" data-level="1.4.3" data-path="start.html"><a href="start.html#multi-line-comments"><i class="fa fa-check"></i><b>1.4.3</b> Multi-Line Comments</a></li>
+<li class="chapter" data-level="1.4.4" data-path="start.html"><a href="start.html#setting-working-directory"><i class="fa fa-check"></i><b>1.4.4</b> Setting working directory</a></li>
+<li class="chapter" data-level="1.4.5" data-path="start.html"><a href="start.html#using-r-projects"><i class="fa fa-check"></i><b>1.4.5</b> Using R Projects</a></li>
+<li class="chapter" data-level="1.4.6" data-path="start.html"><a href="start.html#debugging"><i class="fa fa-check"></i><b>1.4.6</b> Debugging</a></li>
+<li class="chapter" data-level="1.4.7" data-path="start.html"><a href="start.html#last-words"><i class="fa fa-check"></i><b>1.4.7</b> Last Words</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#some-basic-commands"><i class="fa fa-check"></i><b>2.1</b> Some Basic Commands</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#typing-and-executing-commands"><i class="fa fa-check"></i><b>2.2</b> Typing and Executing Commands</a></li>
+<li class="chapter" data-level="2.3" data-path="basics.html"><a href="basics.html#entering-data-directly-into-r"><i class="fa fa-check"></i><b>2.3</b> Entering Data Directly Into R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>3</b> Using Packages</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="packages.html"><a href="packages.html#installing-and-loading-sylcount"><i class="fa fa-check"></i><b>3.1</b> Installing and Loading sylcount</a></li>
+<li class="chapter" data-level="3.2" data-path="packages.html"><a href="packages.html#using-sylcount"><i class="fa fa-check"></i><b>3.2</b> Using sylcount</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="packages.html"><a href="packages.html#readability-of-each-item"><i class="fa fa-check"></i><b>3.2.1</b> Readability of Each Item</a></li>
+<li class="chapter" data-level="3.2.2" data-path="packages.html"><a href="packages.html#readability-of-all-items"><i class="fa fa-check"></i><b>3.2.2</b> Readability of All Items</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reliability.html"><a href="reliability.html"><i class="fa fa-check"></i><b>4</b> Reliability</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="reliability.html"><a href="reliability.html#dataset"><i class="fa fa-check"></i><b>4.1</b> Dataset</a></li>
+<li class="chapter" data-level="4.2" data-path="reliability.html"><a href="reliability.html#install-and-load-packages"><i class="fa fa-check"></i><b>4.2</b> Install and Load Packages</a></li>
+<li class="chapter" data-level="4.3" data-path="reliability.html"><a href="reliability.html#set-working-directory-and-load-dataset"><i class="fa fa-check"></i><b>4.3</b> Set Working Directory and Load Dataset</a></li>
+<li class="chapter" data-level="4.4" data-path="reliability.html"><a href="reliability.html#descriptives"><i class="fa fa-check"></i><b>4.4</b> Descriptives</a></li>
+<li class="chapter" data-level="4.5" data-path="reliability.html"><a href="reliability.html#reverse-scoring"><i class="fa fa-check"></i><b>4.5</b> Reverse Scoring</a></li>
+<li class="chapter" data-level="4.6" data-path="reliability.html"><a href="reliability.html#correlations"><i class="fa fa-check"></i><b>4.6</b> Correlations</a></li>
+<li class="chapter" data-level="4.7" data-path="reliability.html"><a href="reliability.html#alpha-reliability"><i class="fa fa-check"></i><b>4.7</b> Alpha Reliability</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PSYC201 R Companion Website</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basics" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Basics<a href="basics.html#basics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="some-basic-commands" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Some Basic Commands<a href="basics.html#some-basic-commands" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Before typing commands into the script editor, it might be useful for you to know some of the following basic commands.</p>
+<ol style="list-style-type: decimal">
+<li>To place a comment in the script file, begin the line with <code>#</code>.</li>
+<li>To run (execute) a line in the script file, place the cursor on the line, hit <code>Ctrl/Cmd + Enter</code>.
+<ul>
+<li>If we typed the command directly into the console, we only need to hit <code>Enter</code></li>
+</ul></li>
+<li>To run multiple lines in the script file, select the lines, hit <code>Ctrl/Cmd + Enter</code>.</li>
+<li>To run all lines in the script file, hit <code>Ctrl + Shift + Enter</code></li>
+<li>To clear the console when it becomes too messy, hit <code>Ctrl/Cmd + L</code>.</li>
+<li>To request help, type a question mark in front of the command or the package name (e.g., <code>?cor</code>). Information about the command will appear in the Help tab (lower right pane).</li>
+</ol>
+</div>
+<div id="typing-and-executing-commands" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Typing and Executing Commands<a href="basics.html#typing-and-executing-commands" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now, let’s actually get R to do stuff for us! Open a script file (<code>Ctrl/CMD + Shift + N</code>). Then copy and paste the following R codes into the script file. Run each line (<code>Ctrl/Cmd + Enter</code>) to see what they do. Note that <code>#</code> denotes a comment, and therefore it will run as a line of text. Experiment and have fun!</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="basics.html#cb4-1" tabindex="-1"></a><span class="co"># Assign a single value (e.g., 9) to an object, say x.  </span></span>
+<span id="cb4-2"><a href="basics.html#cb4-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">9</span>  <span class="co"># this means &quot;x gets the value of 9&quot;.</span></span>
+<span id="cb4-3"><a href="basics.html#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="basics.html#cb4-4" tabindex="-1"></a><span class="co"># Get the value for x.</span></span>
+<span id="cb4-5"><a href="basics.html#cb4-5" tabindex="-1"></a>x   <span class="co"># remember that R is case-sensitive. If you typed X, you&#39;ll get an error message.</span></span>
+<span id="cb4-6"><a href="basics.html#cb4-6" tabindex="-1"></a>X  <span class="co"># see how R complains here that it can&#39;t find the object? </span></span>
+<span id="cb4-7"><a href="basics.html#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="basics.html#cb4-8" tabindex="-1"></a><span class="co"># If you want to know what objects are in the workspace (i.e., R&#39;s &quot;short term&quot; memory), look at the Environment tab or type ls().</span></span>
+<span id="cb4-9"><a href="basics.html#cb4-9" tabindex="-1"></a><span class="fu">ls</span>()</span>
+<span id="cb4-10"><a href="basics.html#cb4-10" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="basics.html#cb4-11" tabindex="-1"></a><span class="co"># You may remove an object (e.g., x) from the workspace using rm(), where rm stands for remove.</span></span>
+<span id="cb4-12"><a href="basics.html#cb4-12" tabindex="-1"></a><span class="fu">rm</span>(x)  </span>
+<span id="cb4-13"><a href="basics.html#cb4-13" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="basics.html#cb4-14" tabindex="-1"></a><span class="co"># If there are too many objects in the workspace, you may remove all objects from the workspace using rm(list=ls()). To remember this command, I think of it as telling R to remove the list of objects in the Environment tab.</span></span>
+<span id="cb4-15"><a href="basics.html#cb4-15" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb4-16"><a href="basics.html#cb4-16" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="basics.html#cb4-17" tabindex="-1"></a><span class="co"># Assign a non-numerical value by putting the value in quotation marks.</span></span>
+<span id="cb4-18"><a href="basics.html#cb4-18" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;hello!&quot;</span></span>
+<span id="cb4-19"><a href="basics.html#cb4-19" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="basics.html#cb4-20" tabindex="-1"></a><span class="co"># Get the value of y. Notice the value of y is in quotation marks, indicating it is a non-numerical value.</span></span>
+<span id="cb4-21"><a href="basics.html#cb4-21" tabindex="-1"></a>y</span>
+<span id="cb4-22"><a href="basics.html#cb4-22" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="basics.html#cb4-23" tabindex="-1"></a><span class="co"># Perform the following mathematical operations in R.</span></span>
+<span id="cb4-24"><a href="basics.html#cb4-24" tabindex="-1"></a><span class="dv">11</span> <span class="sc">+</span> <span class="dv">10</span>  </span>
+<span id="cb4-25"><a href="basics.html#cb4-25" tabindex="-1"></a><span class="dv">11</span> <span class="sc">-</span> <span class="dv">10</span>  </span>
+<span id="cb4-26"><a href="basics.html#cb4-26" tabindex="-1"></a><span class="dv">11</span> <span class="sc">*</span> <span class="dv">10</span></span>
+<span id="cb4-27"><a href="basics.html#cb4-27" tabindex="-1"></a><span class="dv">11</span> <span class="sc">/</span> <span class="dv">10</span></span>
+<span id="cb4-28"><a href="basics.html#cb4-28" tabindex="-1"></a><span class="dv">11</span> <span class="sc">^</span> <span class="dv">10</span></span>
+<span id="cb4-29"><a href="basics.html#cb4-29" tabindex="-1"></a><span class="dv">11</span> <span class="sc">^</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb4-30"><a href="basics.html#cb4-30" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">11</span>)   <span class="co"># this number should be the same as above line</span></span>
+<span id="cb4-31"><a href="basics.html#cb4-31" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">11</span>)    <span class="co"># taking natural log (log base e also known as ln) </span></span>
+<span id="cb4-32"><a href="basics.html#cb4-32" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">11</span>)  <span class="co"># taking log base 10</span></span>
+<span id="cb4-33"><a href="basics.html#cb4-33" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">11</span>)    <span class="co"># taking the exponential</span></span>
+<span id="cb4-34"><a href="basics.html#cb4-34" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="basics.html#cb4-35" tabindex="-1"></a><span class="co"># Perform mathematical operations in R with an object (e.g., a). </span></span>
+<span id="cb4-36"><a href="basics.html#cb4-36" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">11</span>  <span class="co"># a gets the value of 11</span></span>
+<span id="cb4-37"><a href="basics.html#cb4-37" tabindex="-1"></a>a <span class="sc">+</span> <span class="dv">10</span></span>
+<span id="cb4-38"><a href="basics.html#cb4-38" tabindex="-1"></a>a <span class="sc">-</span> <span class="dv">10</span></span>
+<span id="cb4-39"><a href="basics.html#cb4-39" tabindex="-1"></a>a <span class="sc">*</span> <span class="dv">10</span></span>
+<span id="cb4-40"><a href="basics.html#cb4-40" tabindex="-1"></a>a <span class="sc">/</span> <span class="dv">10</span></span>
+<span id="cb4-41"><a href="basics.html#cb4-41" tabindex="-1"></a>a <span class="sc">^</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb4-42"><a href="basics.html#cb4-42" tabindex="-1"></a><span class="fu">sqrt</span>(a)</span>
+<span id="cb4-43"><a href="basics.html#cb4-43" tabindex="-1"></a><span class="fu">log</span>(a)</span>
+<span id="cb4-44"><a href="basics.html#cb4-44" tabindex="-1"></a><span class="fu">log10</span>(a)</span>
+<span id="cb4-45"><a href="basics.html#cb4-45" tabindex="-1"></a><span class="fu">exp</span>(a)</span>
+<span id="cb4-46"><a href="basics.html#cb4-46" tabindex="-1"></a></span>
+<span id="cb4-47"><a href="basics.html#cb4-47" tabindex="-1"></a><span class="co"># Perform mathematical operations with more than one object.</span></span>
+<span id="cb4-48"><a href="basics.html#cb4-48" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span>  <span class="co"># notice that 2 now replaces the value “hello”. </span></span>
+<span id="cb4-49"><a href="basics.html#cb4-49" tabindex="-1"></a>a <span class="sc">+</span> y</span>
+<span id="cb4-50"><a href="basics.html#cb4-50" tabindex="-1"></a>a <span class="sc">-</span> y</span>
+<span id="cb4-51"><a href="basics.html#cb4-51" tabindex="-1"></a>a <span class="sc">*</span> y</span>
+<span id="cb4-52"><a href="basics.html#cb4-52" tabindex="-1"></a>a <span class="sc">/</span> y</span>
+<span id="cb4-53"><a href="basics.html#cb4-53" tabindex="-1"></a>a <span class="sc">^</span> (<span class="dv">1</span><span class="sc">/</span>y)</span>
+<span id="cb4-54"><a href="basics.html#cb4-54" tabindex="-1"></a></span>
+<span id="cb4-55"><a href="basics.html#cb4-55" tabindex="-1"></a><span class="co"># You cannot perform mathematical operations with non-numerical objects. </span></span>
+<span id="cb4-56"><a href="basics.html#cb4-56" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="st">&quot;1&quot;</span>   <span class="co"># recall, putting things in between quotation marks makes it non-numerical, even if 1 is a number.</span></span>
+<span id="cb4-57"><a href="basics.html#cb4-57" tabindex="-1"></a>a <span class="sc">+</span> b  <span class="co"># you get an error here because you cannot perform mathematical operations with non-numerical objects.</span></span>
+<span id="cb4-58"><a href="basics.html#cb4-58" tabindex="-1"></a></span>
+<span id="cb4-59"><a href="basics.html#cb4-59" tabindex="-1"></a><span class="co"># An object can store more than one value, such as a set of numbers or a set of characters. This is known as a vector and can be created using c(). </span></span>
+<span id="cb4-60"><a href="basics.html#cb4-60" tabindex="-1"></a>num_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)   <span class="co"># numeric vector</span></span>
+<span id="cb4-61"><a href="basics.html#cb4-61" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;orange&quot;</span>)   <span class="co"># non-numeric vector</span></span>
+<span id="cb4-62"><a href="basics.html#cb4-62" tabindex="-1"></a></span>
+<span id="cb4-63"><a href="basics.html#cb4-63" tabindex="-1"></a><span class="co"># Get the values stored in the vectors </span></span>
+<span id="cb4-64"><a href="basics.html#cb4-64" tabindex="-1"></a>num_vector</span>
+<span id="cb4-65"><a href="basics.html#cb4-65" tabindex="-1"></a>fruits</span>
+<span id="cb4-66"><a href="basics.html#cb4-66" tabindex="-1"></a></span>
+<span id="cb4-67"><a href="basics.html#cb4-67" tabindex="-1"></a><span class="co"># You can do mathematical operations with numerical vectors but not with non-numerical vectors. </span></span>
+<span id="cb4-68"><a href="basics.html#cb4-68" tabindex="-1"></a>num_vector <span class="sc">*</span> <span class="dv">5</span>  <span class="co"># each value in num_vector is multiplied by 5</span></span>
+<span id="cb4-69"><a href="basics.html#cb4-69" tabindex="-1"></a>fruits <span class="sc">*</span> <span class="dv">5</span>  <span class="co"># this throws an error that tells you that you cannot use non-numeric values for this operation</span></span></code></pre></div>
+</div>
+<div id="entering-data-directly-into-r" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Entering Data Directly Into R<a href="basics.html#entering-data-directly-into-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In reality, we rarely use R to do such simple mathematical calculations; we use R for data analyses. But before we can conduct any analysis, we need to give R some data. One way is to key the data directly into R.</p>
+<p>Let’s say we have three people, Bob, Andrea, and Calvin. We have their ages, the number of children each of them has, and their gender.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Age</th>
+<th align="left">No. of Children</th>
+<th align="left">Gender</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Bob</td>
+<td align="left">48</td>
+<td align="left">1</td>
+<td align="left">Male</td>
+</tr>
+<tr class="even">
+<td align="left">Andrea</td>
+<td align="left">47</td>
+<td align="left">3</td>
+<td align="left">Female</td>
+</tr>
+<tr class="odd">
+<td align="left">Calvin</td>
+<td align="left">49</td>
+<td align="left">2</td>
+<td align="left">Male</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s figure out how to give R this set of data.</p>
+<p>First, we create an object <code>name</code>, and assign the three people’s names to it.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="basics.html#cb5-1" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Andrea&quot;</span>, <span class="st">&quot;Calvin&quot;</span>)  </span>
+<span id="cb5-2"><a href="basics.html#cb5-2" tabindex="-1"></a><span class="co"># the c in c() stands for combine </span></span>
+<span id="cb5-3"><a href="basics.html#cb5-3" tabindex="-1"></a><span class="co"># here, we&#39;re telling R to combine the three names into a list of names</span></span>
+<span id="cb5-4"><a href="basics.html#cb5-4" tabindex="-1"></a><span class="co"># notice the names are between quotation marks</span></span>
+<span id="cb5-5"><a href="basics.html#cb5-5" tabindex="-1"></a><span class="co"># this tells R that name is a string (non-numerical) variable</span></span></code></pre></div>
+<p>If we type <code>name</code> into the console, we should get:</p>
+<pre><code>## [1] &quot;Bob&quot;    &quot;Andrea&quot; &quot;Calvin&quot;</code></pre>
+<p>Next, we create the object <code>age</code>, with the three people’s ages.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="basics.html#cb7-1" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">48</span>, <span class="dv">47</span>, <span class="dv">49</span>)  </span>
+<span id="cb7-2"><a href="basics.html#cb7-2" tabindex="-1"></a><span class="co"># here, we&#39;re creating a list of ages</span></span>
+<span id="cb7-3"><a href="basics.html#cb7-3" tabindex="-1"></a><span class="co"># the order of age should match the order of the names</span></span></code></pre></div>
+<p>If we type <code>age</code> into the console, we should get:</p>
+<pre><code>## [1] 48 47 49</code></pre>
+<p>Now, let’s combine the two variables into a data frame. You can think of a data frame as a spreadsheet or as a table, where each row represents the information for one person, and <code>name</code> and <code>age</code> are in side-by-side columns.</p>
+<p>We will use the <code>data.frame()</code> function and call this data frame <code>data</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="basics.html#cb9-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Name =</span> name, <span class="at">Age =</span> age)  </span>
+<span id="cb9-2"><a href="basics.html#cb9-2" tabindex="-1"></a><span class="co"># Name = name tells R that the column should have the header Name and the data for the column should be copied from the object name. </span></span>
+<span id="cb9-3"><a href="basics.html#cb9-3" tabindex="-1"></a><span class="co"># Age = age tells R that the column should have the header Age and the data for the column should be copied from the object age. </span></span></code></pre></div>
+<p>Type <code>data</code> into the console. You should see:</p>
+<pre><code>##     Name Age
+## 1    Bob  48
+## 2 Andrea  47
+## 3 Calvin  49</code></pre>
+<p>Notice that the output has two columns: <code>Name</code> and <code>Age</code>, where <code>Name</code> lists the names of the individuals and <code>Age</code> lists their ages.</p>
+<p>The values of <code>Name</code> and <code>Age</code> in the data frame were copied from the original objects. This means that the original objects, <code>name</code> and <code>age</code>, are still in R’s memory. You can see that this is the case from the Environment tab or when you use the ls() function.</p>
+<pre><code>## [1] &quot;age&quot;  &quot;data&quot; &quot;name&quot;</code></pre>
+<p>Let’s remove the original variables <code>name</code> and <code>age</code>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="basics.html#cb12-1" tabindex="-1"></a><span class="fu">rm</span>(name)</span>
+<span id="cb12-2"><a href="basics.html#cb12-2" tabindex="-1"></a><span class="fu">rm</span>(age)</span></code></pre></div>
+<p>Now, when you type ls() into the console, you’ll see that all is left is the data frame, <code>data</code>.</p>
+<pre><code>## [1] &quot;data&quot;</code></pre>
+<p>If you wish, you can directly type the data into a data frame instead of first creating separate objects for each variable.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="basics.html#cb14-1" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Name =</span> <span class="fu">c</span>(<span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Andrea&quot;</span>, <span class="st">&quot;Calvin&quot;</span>), <span class="at">Age =</span> <span class="fu">c</span>(<span class="dv">48</span>, <span class="dv">47</span>, <span class="dv">49</span>))</span>
+<span id="cb14-2"><a href="basics.html#cb14-2" tabindex="-1"></a><span class="co"># data and data2 will look exactly the same</span></span></code></pre></div>
+<p>Now, suppose we want to use the variables in the data frame <code>data</code>. We will need to attach <code>data$</code> (a dollar sign after the name of the data frame) before the variable name. This will tell R that that variable comes from the data frame <code>data</code>.</p>
+<p>For example, if we want to know the ages of the three participants. We should type:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="basics.html#cb15-1" tabindex="-1"></a>data<span class="sc">$</span>Age</span></code></pre></div>
+<pre><code>## [1] 48 47 49</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="basics.html#cb17-1" tabindex="-1"></a><span class="co"># this tells R to go to the object called data, locate the column Age and then produce the values in that column</span></span>
+<span id="cb17-2"><a href="basics.html#cb17-2" tabindex="-1"></a><span class="co"># remember that R is case-sensitive. So if you&#39;d typed data$age, you&#39;ll get an error.</span></span>
+<span id="cb17-3"><a href="basics.html#cb17-3" tabindex="-1"></a><span class="co"># typing age or Age won&#39;t work either because there isn&#39;t an object called age or Age.</span></span></code></pre></div>
+<p>From the original table, we know that there are more variables (columns) we need to add to the data frame <code>data</code>: the number of children the person has and the person’s gender. Let’s label the number of children each person has as <code>Children</code> and the gender of each person as <code>Gender</code>.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="basics.html#cb18-1" tabindex="-1"></a>data<span class="sc">$</span>Children <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)  </span>
+<span id="cb18-2"><a href="basics.html#cb18-2" tabindex="-1"></a><span class="co"># this tells R to go to the object data and create a column called Children. Then, assign the column the values 1, 3, and 2.</span></span>
+<span id="cb18-3"><a href="basics.html#cb18-3" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="basics.html#cb18-4" tabindex="-1"></a>data<span class="sc">$</span>Gender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>)   </span>
+<span id="cb18-5"><a href="basics.html#cb18-5" tabindex="-1"></a><span class="co"># this tells R to go to the object data and create a column called Gender. Then, assign the column the values &quot;male&quot;, &quot;female&quot;, and &quot;male&quot;</span></span>
+<span id="cb18-6"><a href="basics.html#cb18-6" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="basics.html#cb18-7" tabindex="-1"></a><span class="co"># again, notice the order of data$Children and data$Gender match the order of the names</span></span></code></pre></div>
+<p>Now, when you type <code>data</code> into the console, you’ll get:</p>
+<pre><code>##     Name Age Children Gender
+## 1    Bob  48        1   male
+## 2 Andrea  47        3 female
+## 3 Calvin  49        2   male</code></pre>
+<p>Note that we created <code>Children</code> and <code>Gender</code> within the data frame <code>data</code>. So if you type <code>Children</code> and <code>Gender</code> without <code>data$</code>, you will get an error message in the console telling you that the object cannot be found because there isn’t an object (independent of the data frame) that is called <code>Children</code> or <code>Gender</code>.</p>
+<p>Now, let’s say we made a mistake and need to remove <code>Children</code> from the data frame, <code>data</code>. We can type:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="basics.html#cb20-1" tabindex="-1"></a>data<span class="sc">$</span>Children <span class="ot">&lt;-</span> <span class="cn">NULL</span>  </span>
+<span id="cb20-2"><a href="basics.html#cb20-2" tabindex="-1"></a><span class="co"># this tells R to assign the value of NULL to data$Children</span></span>
+<span id="cb20-3"><a href="basics.html#cb20-3" tabindex="-1"></a><span class="co"># NULL basically represents non-existence. So, when we assign NULL to data$Children, it means we want that column to be non-existent / removed.</span></span>
+<span id="cb20-4"><a href="basics.html#cb20-4" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="basics.html#cb20-5" tabindex="-1"></a>data </span></code></pre></div>
+<pre><code>##     Name Age Gender
+## 1    Bob  48   male
+## 2 Andrea  47 female
+## 3 Calvin  49   male</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="basics.html#cb22-1" tabindex="-1"></a><span class="co"># notice that the Children column is now gone</span></span></code></pre></div>
+<p>Finally, if we want to save the data frame into a .csv file, we use <code>write.csv()</code>.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="basics.html#cb23-1" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="st">&quot;bobandreacalvin.csv&quot;</span>)  </span>
+<span id="cb23-2"><a href="basics.html#cb23-2" tabindex="-1"></a><span class="co"># this tells R to save the object, data, as a .csv file, and to name the .csv file as bobandreacalvin.csv.</span></span>
+<span id="cb23-3"><a href="basics.html#cb23-3" tabindex="-1"></a><span class="co"># remember to specify both the name and the extension of the file (e.g., bobandreacalvin.csv). </span></span></code></pre></div>
+<p>The .csv file will now be saved as <code>bobandreacalvin.csv</code> within your current directory. If you used an R project, it will be saved in your project directory. If you didn’t use an R project but set the working directory, it will be in the working directory. Otherwise, it will be in the default directory. If you don’t know what the directory is, type <code>getwd()</code> into the console.</p>
+<p>As an aside, some students might wonder why we don’t use <code>write.csv2</code> instead. <code>write.csv2</code> uses a comma for the decimal point whereas <code>write.csv</code> uses a full stop / period for the decimal point. Since it’s more usual to use the full stop / period for the decimal point, we’ll stick to <code>write.csv</code>.</p>
+<p>Now that you understand the basics of R, let’s look at how to use R packages in the <a href="packages.html#packages">following section</a>!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="start.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/hueywoon/assignment/blob/master/01-basics.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
