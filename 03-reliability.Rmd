@@ -79,13 +79,13 @@ We will apply that formula across the 5 columns containing the reverse-keyed ite
 ```{r}
 
 esteem %>%
-  mutate(4 + 1 - across(c(V34, V37, V38, V40, V41), 
-                        .names = "{col}_r")) %>%
+  mutate(across(c(V34, V37, V38, V40, V41), ~ (4 + 1 - .x), 
+                .names = "{col}_r")) %>%
   view(., "check")
 
 ```
 
-The above code is saying this: Go to the data frame `esteem` and then mutate (create new columns) by taking 4 + 1 - each of this set of columns (V34, V37, V38, V40, V41). Give the new columns names (.names) by taking the name of the original columns ({col}) and adding `_r`. Then, view the result of the reverse scoring (and call that window "check"). 
+The above code is saying this: Go to the data frame `esteem`. Then, mutate (create new columns) across each of this set of columns (V34, V37, V38, V40, V41) by taking (4 + 1 - values in the respective column). Give the new columns new names (.names) by taking the name of the original columns ({col}) and adding `_r` at the end. Then, view the resulting dataframe and call that window "check". 
 
 Check that the reverse-keyed items have been reverse-scored properly (e.g., values of 1 on the original item are now 4 after reverse scoring and vice versa.)
 
@@ -94,14 +94,14 @@ If all is good, then proceed to save the changes by overwriting `esteem` (using 
 ```{r}
 
 esteem <- esteem %>%
-  mutate(4 + 1 - across(c(V34, V37, V38, V40, V41), 
-                        .names = "{col}_r"))
+  mutate(across(c(V34, V37, V38, V40, V41), ~ (4 + 1 - .x), 
+                .names = "{col}_r"))
 
 ```
 
 ## Correlations
 
-After completing the reverse scoring, we can check the correlations to make sure that the items are generally positively correlated with each other. This is an optional second check to ensure that we have recoded the reverse-keyed items properly. 
+After completing the reverse scoring, we can check the correlations to make sure that the items are generally positively correlated with each other. This is an optional second check to ensure that we have recoded the reverse-keyed items properly. Here, we will use the `corr.test()` function from the `psych` package. 
 
 ```{r}
 
@@ -115,7 +115,7 @@ The code above is saying: Go to the data frame `esteem` and then select (choose)
 
 ## Alpha Reliability
 
-Now we can check the reliability of the full scale using Cronbach's alpha. Cronbach's alpha should only be computed among items that are generally positively correlated. So like for correlation, we included only the recoded reverse-keyed items and not the uncoded reverse-keyed items.
+Now we can check the reliability of the full scale using Cronbach's alpha. Cronbach's alpha should only be computed among items that are generally positively correlated. So like for correlation, we included only the recoded reverse-keyed items and not the uncoded reverse-keyed items. Here, we will use the `alpha()` function from the `psych` package. 
 
 ```{r}
 
@@ -125,8 +125,8 @@ esteem %>%
 
 ```
 
-The code above is saying: Go to the data frame `esteem` and then select (choose) this set of columns (V33, V35, V36, V39, V42, V34_r, V37_r, V38_r, V40_r, V41_r). Then calculate the alpha using the alpha function from the psych package (`psych::alpha(.)`). 
+The code above is saying: Go to the data frame `esteem` and then select (choose) this set of columns (V33, V35, V36, V39, V42, V34_r, V37_r, V38_r, V40_r, V41_r). Then calculate the alpha using the `alpha()` function from the `psych` package (`psych::alpha(.)`). 
 
-The reason we use `psych::alpha()` instead of just `alpha()` is that the tidyverse package also has an `alpha()` function. We need to specify which package's function we want to use. 
+The reason we use `psych::alpha()` in the code instead of just `alpha()` is that the tidyverse package also has an `alpha()` function. We need to specify which package's function we want to use. 
 
 The Cronbach's alpha generally ranges from 0 (completely unreliable) to 1 (perfectly reliable), with higher values indicating better scale reliability. 

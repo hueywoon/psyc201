@@ -264,19 +264,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>As mentioned earlier, V34, V37, V38, V40, V41 are reverse-keyed items. This means that we need to reverse score them (i.e., convert values of 1 to 4, 2 to 3, 3 to 2, and 4 to 1). To do that, we will use the following formula: <code>(max possible value on likert scale + min possible value on likert scale) - observation</code>. (For the esteem items, the max possible value is 4 and the min possible value is 1.)</p>
 <p>We will apply that formula across the 5 columns containing the reverse-keyed items.</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="reliability.html#cb39-1" tabindex="-1"></a>esteem <span class="sc">%&gt;%</span></span>
-<span id="cb39-2"><a href="reliability.html#cb39-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="dv">4</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">across</span>(<span class="fu">c</span>(V34, V37, V38, V40, V41), </span>
-<span id="cb39-3"><a href="reliability.html#cb39-3" tabindex="-1"></a>                        <span class="at">.names =</span> <span class="st">&quot;{col}_r&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="reliability.html#cb39-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(V34, V37, V38, V40, V41), <span class="sc">~</span> (<span class="dv">4</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">-</span> .x), </span>
+<span id="cb39-3"><a href="reliability.html#cb39-3" tabindex="-1"></a>                <span class="at">.names =</span> <span class="st">&quot;{col}_r&quot;</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb39-4"><a href="reliability.html#cb39-4" tabindex="-1"></a>  <span class="fu">view</span>(., <span class="st">&quot;check&quot;</span>)</span></code></pre></div>
-<p>The above code is saying this: Go to the data frame <code>esteem</code> and then mutate (create new columns) by taking 4 + 1 - each of this set of columns (V34, V37, V38, V40, V41). Give the new columns names (.names) by taking the name of the original columns ({col}) and adding <code>_r</code>. Then, view the result of the reverse scoring (and call that window “check”).</p>
+<p>The above code is saying this: Go to the data frame <code>esteem</code>. Then, mutate (create new columns) across each of this set of columns (V34, V37, V38, V40, V41) by taking (4 + 1 - values in the respective column). Give the new columns new names (.names) by taking the name of the original columns ({col}) and adding <code>_r</code> at the end. Then, view the resulting dataframe and call that window “check”.</p>
 <p>Check that the reverse-keyed items have been reverse-scored properly (e.g., values of 1 on the original item are now 4 after reverse scoring and vice versa.)</p>
 <p>If all is good, then proceed to save the changes by overwriting <code>esteem</code> (using <code>esteem &lt;-</code>) and removing <code>view(., "check")</code>.</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="reliability.html#cb40-1" tabindex="-1"></a>esteem <span class="ot">&lt;-</span> esteem <span class="sc">%&gt;%</span></span>
-<span id="cb40-2"><a href="reliability.html#cb40-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="dv">4</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">across</span>(<span class="fu">c</span>(V34, V37, V38, V40, V41), </span>
-<span id="cb40-3"><a href="reliability.html#cb40-3" tabindex="-1"></a>                        <span class="at">.names =</span> <span class="st">&quot;{col}_r&quot;</span>))</span></code></pre></div>
+<span id="cb40-2"><a href="reliability.html#cb40-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(V34, V37, V38, V40, V41), <span class="sc">~</span> (<span class="dv">4</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">-</span> .x), </span>
+<span id="cb40-3"><a href="reliability.html#cb40-3" tabindex="-1"></a>                <span class="at">.names =</span> <span class="st">&quot;{col}_r&quot;</span>))</span></code></pre></div>
 </div>
 <div id="correlations" class="section level2 hasAnchor" number="4.6">
 <h2><span class="header-section-number">4.6</span> Correlations<a href="reliability.html#correlations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>After completing the reverse scoring, we can check the correlations to make sure that the items are generally positively correlated with each other. This is an optional second check to ensure that we have recoded the reverse-keyed items properly.</p>
+<p>After completing the reverse scoring, we can check the correlations to make sure that the items are generally positively correlated with each other. This is an optional second check to ensure that we have recoded the reverse-keyed items properly. Here, we will use the <code>corr.test()</code> function from the <code>psych</code> package.</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="reliability.html#cb41-1" tabindex="-1"></a>esteem <span class="sc">%&gt;%</span></span>
 <span id="cb41-2"><a href="reliability.html#cb41-2" tabindex="-1"></a>  <span class="fu">select</span>(V33, V35, V36, V39, V42, V34_r, V37_r, V38_r, V40_r, V41_r) <span class="sc">%&gt;%</span></span>
 <span id="cb41-3"><a href="reliability.html#cb41-3" tabindex="-1"></a>  <span class="fu">corr.test</span>(.)</span></code></pre></div>
@@ -313,7 +313,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="alpha-reliability" class="section level2 hasAnchor" number="4.7">
 <h2><span class="header-section-number">4.7</span> Alpha Reliability<a href="reliability.html#alpha-reliability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Now we can check the reliability of the full scale using Cronbach’s alpha. Cronbach’s alpha should only be computed among items that are generally positively correlated. So like for correlation, we included only the recoded reverse-keyed items and not the uncoded reverse-keyed items.</p>
+<p>Now we can check the reliability of the full scale using Cronbach’s alpha. Cronbach’s alpha should only be computed among items that are generally positively correlated. So like for correlation, we included only the recoded reverse-keyed items and not the uncoded reverse-keyed items. Here, we will use the <code>alpha()</code> function from the <code>psych</code> package.</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="reliability.html#cb43-1" tabindex="-1"></a>esteem <span class="sc">%&gt;%</span></span>
 <span id="cb43-2"><a href="reliability.html#cb43-2" tabindex="-1"></a>  <span class="fu">select</span>(V33, V35, V36, V39, V42, V34_r, V37_r, V38_r, V40_r, V41_r) <span class="sc">%&gt;%</span></span>
 <span id="cb43-3"><a href="reliability.html#cb43-3" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">alpha</span>(.)</span></code></pre></div>
@@ -367,8 +367,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## V38_r 0.09 0.57 0.30 0.04    0
 ## V40_r 0.13 0.22 0.65 0.00    0
 ## V41_r 0.04 0.17 0.48 0.30    0</code></pre>
-<p>The code above is saying: Go to the data frame <code>esteem</code> and then select (choose) this set of columns (V33, V35, V36, V39, V42, V34_r, V37_r, V38_r, V40_r, V41_r). Then calculate the alpha using the alpha function from the psych package (<code>psych::alpha(.)</code>).</p>
-<p>The reason we use <code>psych::alpha()</code> instead of just <code>alpha()</code> is that the tidyverse package also has an <code>alpha()</code> function. We need to specify which package’s function we want.</p>
+<p>The code above is saying: Go to the data frame <code>esteem</code> and then select (choose) this set of columns (V33, V35, V36, V39, V42, V34_r, V37_r, V38_r, V40_r, V41_r). Then calculate the alpha using the <code>alpha()</code> function from the <code>psych</code> package (<code>psych::alpha(.)</code>).</p>
+<p>The reason we use <code>psych::alpha()</code> in the code instead of just <code>alpha()</code> is that the tidyverse package also has an <code>alpha()</code> function. We need to specify which package’s function we want to use.</p>
 <p>The Cronbach’s alpha generally ranges from 0 (completely unreliable) to 1 (perfectly reliable), with higher values indicating better scale reliability.</p>
 
 </div>
